@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jmemnobs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jaricom.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jcomapi.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jutils.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jerror.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jmemmgr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jcapimin.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jcapistd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jcarith.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jctrans.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jcparam.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jdatadst.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jcinit.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jcmaster.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jcmarker.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jcmainct.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jcprepct.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jccoefct.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jccolor.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jcsample.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jchuff.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jcdctmgr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jfdctfst.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jfdctflt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jfdctint.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jdapimin.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jdapistd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jdarith.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jdtrans.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jdatasrc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jdmaster.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jdinput.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jdmarker.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jdhuff.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jdmainct.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jdcoefct.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jdpostct.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jddctmgr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jidctfst.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jidctflt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jidctint.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jdsample.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jdcolor.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jquant1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jquant2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\jdmerge.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{CCBD500C-1657-3505-ABD7-DF52531F1331}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

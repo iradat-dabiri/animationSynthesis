@@ -1,0 +1,520 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{864B0525-913B-32E9-964D-17E170ADC15C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\zlib;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\png;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\zlib;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\png;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\zlib;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\png;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\zlib;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\jpeg;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\png;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/HP ELiteBook/Documents/Year 3/COMP30030 Third Year Project Laboratory/2. Code/skeletonMaker/dependencies/fltk-1.3.9/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/HP ELiteBook/Documents/Year 3/COMP30030 Third Year Project Laboratory/2. Code/skeletonMaker/dependencies/fltk-1.3.9" "-BC:/Users/HP ELiteBook/Documents/Year 3/COMP30030 Third Year Project Laboratory/2. Code/skeletonMaker/dependencies/fltk-1.3.9/build" --check-stamp-file "C:/Users/HP ELiteBook/Documents/Year 3/COMP30030 Third Year Project Laboratory/2. Code/skeletonMaker/dependencies/fltk-1.3.9/build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCCompilerABI.c;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCXXCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCXXCompilerABI.cpp;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineCompileFeatures.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeFindBinUtils.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeParseLibraryArchitecture.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeRCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeTestCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeTestCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeTestRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckIncludeFiles.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\CrayClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\IBMClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\IBMClang-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\LCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\LCC-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\NVHPC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\OrangeC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Tasking-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files\CMake\share\cmake-3.28\Modules\FLTKCompatibility.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FeatureSummary.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindDoxygen.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindJPEG.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPNG.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindZLIB.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Internal\FeatureTesting.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-Determine-CXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\SelectLibraryConfigurations.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\TestBigEndian.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\FLTK-Functions.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\FLTKConfig.cmake.in;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\UseFLTK.cmake.in;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\cmake_uninstall.cmake.in;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\export.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\fl_add_library.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\fl_debug_var.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\install.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\options.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\resources.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\setup.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\variables.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\abi-version.cmake.in;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\CMakeFiles\3.28.1\CMakeCCompiler.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\CMakeFiles\3.28.1\CMakeCXXCompiler.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\CMakeFiles\3.28.1\CMakeRCCompiler.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\CMakeFiles\3.28.1\CMakeSystem.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\configh.cmake.in;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\fltk-config.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/HP ELiteBook/Documents/Year 3/COMP30030 Third Year Project Laboratory/2. Code/skeletonMaker/dependencies/fltk-1.3.9/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/HP ELiteBook/Documents/Year 3/COMP30030 Third Year Project Laboratory/2. Code/skeletonMaker/dependencies/fltk-1.3.9" "-BC:/Users/HP ELiteBook/Documents/Year 3/COMP30030 Third Year Project Laboratory/2. Code/skeletonMaker/dependencies/fltk-1.3.9/build" --check-stamp-file "C:/Users/HP ELiteBook/Documents/Year 3/COMP30030 Third Year Project Laboratory/2. Code/skeletonMaker/dependencies/fltk-1.3.9/build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCCompilerABI.c;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCXXCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCXXCompilerABI.cpp;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineCompileFeatures.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeFindBinUtils.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeParseLibraryArchitecture.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeRCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeTestCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeTestCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeTestRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckIncludeFiles.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\CrayClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\IBMClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\IBMClang-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\LCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\LCC-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\NVHPC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\OrangeC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Tasking-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files\CMake\share\cmake-3.28\Modules\FLTKCompatibility.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FeatureSummary.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindDoxygen.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindJPEG.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPNG.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindZLIB.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Internal\FeatureTesting.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-Determine-CXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\SelectLibraryConfigurations.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\TestBigEndian.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\FLTK-Functions.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\FLTKConfig.cmake.in;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\UseFLTK.cmake.in;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\cmake_uninstall.cmake.in;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\export.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\fl_add_library.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\fl_debug_var.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\install.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\options.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\resources.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\setup.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\variables.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\abi-version.cmake.in;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\CMakeFiles\3.28.1\CMakeCCompiler.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\CMakeFiles\3.28.1\CMakeCXXCompiler.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\CMakeFiles\3.28.1\CMakeRCCompiler.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\CMakeFiles\3.28.1\CMakeSystem.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\configh.cmake.in;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\fltk-config.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/HP ELiteBook/Documents/Year 3/COMP30030 Third Year Project Laboratory/2. Code/skeletonMaker/dependencies/fltk-1.3.9/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/HP ELiteBook/Documents/Year 3/COMP30030 Third Year Project Laboratory/2. Code/skeletonMaker/dependencies/fltk-1.3.9" "-BC:/Users/HP ELiteBook/Documents/Year 3/COMP30030 Third Year Project Laboratory/2. Code/skeletonMaker/dependencies/fltk-1.3.9/build" --check-stamp-file "C:/Users/HP ELiteBook/Documents/Year 3/COMP30030 Third Year Project Laboratory/2. Code/skeletonMaker/dependencies/fltk-1.3.9/build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCCompilerABI.c;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCXXCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCXXCompilerABI.cpp;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineCompileFeatures.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeFindBinUtils.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeParseLibraryArchitecture.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeRCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeTestCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeTestCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeTestRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckIncludeFiles.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\CrayClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\IBMClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\IBMClang-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\LCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\LCC-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\NVHPC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\OrangeC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Tasking-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files\CMake\share\cmake-3.28\Modules\FLTKCompatibility.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FeatureSummary.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindDoxygen.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindJPEG.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPNG.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindZLIB.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Internal\FeatureTesting.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-Determine-CXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\SelectLibraryConfigurations.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\TestBigEndian.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\FLTK-Functions.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\FLTKConfig.cmake.in;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\UseFLTK.cmake.in;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\cmake_uninstall.cmake.in;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\export.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\fl_add_library.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\fl_debug_var.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\install.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\options.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\resources.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\setup.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\variables.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\abi-version.cmake.in;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\CMakeFiles\3.28.1\CMakeCCompiler.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\CMakeFiles\3.28.1\CMakeCXXCompiler.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\CMakeFiles\3.28.1\CMakeRCCompiler.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\CMakeFiles\3.28.1\CMakeSystem.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\configh.cmake.in;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\fltk-config.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/HP ELiteBook/Documents/Year 3/COMP30030 Third Year Project Laboratory/2. Code/skeletonMaker/dependencies/fltk-1.3.9/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/HP ELiteBook/Documents/Year 3/COMP30030 Third Year Project Laboratory/2. Code/skeletonMaker/dependencies/fltk-1.3.9" "-BC:/Users/HP ELiteBook/Documents/Year 3/COMP30030 Third Year Project Laboratory/2. Code/skeletonMaker/dependencies/fltk-1.3.9/build" --check-stamp-file "C:/Users/HP ELiteBook/Documents/Year 3/COMP30030 Third Year Project Laboratory/2. Code/skeletonMaker/dependencies/fltk-1.3.9/build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCCompilerABI.c;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCXXCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCXXCompilerABI.cpp;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeCompilerIdDetection.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineCompileFeatures.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineCompilerABI.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineCompilerId.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeFindBinUtils.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeParseImplicitIncludeInfo.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeParseImplicitLinkInfo.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeParseLibraryArchitecture.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeRCCompiler.cmake.in;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeTestCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeTestCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeTestCompilerCommon.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CMakeTestRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckIncludeFiles.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\ADSP-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\ARMCC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\ARMClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\AppleClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Borland-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Clang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Cray-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\CrayClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\GHS-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\GNU-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\HP-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\IAR-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\IBMClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\IBMClang-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Intel-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\LCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\LCC-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\NVHPC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\OrangeC-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\PGI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\PathScale-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\SCO-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\TI-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Tasking-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\Watcom-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\XL-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\zOS-C-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\CompilerId\VS-10.vcxproj.in;C:\Program Files\CMake\share\cmake-3.28\Modules\FLTKCompatibility.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FeatureSummary.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindDoxygen.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindJPEG.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPNG.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\FindZLIB.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Internal\FeatureTesting.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-Determine-CXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\SelectLibraryConfigurations.cmake;C:\Program Files\CMake\share\cmake-3.28\Modules\TestBigEndian.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\FLTK-Functions.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\FLTKConfig.cmake.in;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\UseFLTK.cmake.in;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\cmake_uninstall.cmake.in;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\export.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\fl_add_library.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\fl_debug_var.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\install.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\options.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\resources.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\setup.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\CMake\variables.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\abi-version.cmake.in;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\CMakeFiles\3.28.1\CMakeCCompiler.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\CMakeFiles\3.28.1\CMakeCXXCompiler.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\CMakeFiles\3.28.1\CMakeRCCompiler.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\CMakeFiles\3.28.1\CMakeSystem.cmake;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\configh.cmake.in;C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\fltk-config.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\ZERO_CHECK.vcxproj">
+      <Project>{3EA5C3AD-3904-3C24-A049-FFBF0A363E1B}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\CubeView.vcxproj">
+      <Project>{D6440C2B-BB0E-370A-A964-9E0327C24347}</Project>
+      <Name>CubeView</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\adjuster.vcxproj">
+      <Project>{E38E3D92-2A19-3282-889E-8D4189AC103F}</Project>
+      <Name>adjuster</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\animated.vcxproj">
+      <Project>{06655C8C-DE67-36B9-AB68-D136085708D7}</Project>
+      <Name>animated</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\arc.vcxproj">
+      <Project>{765365E7-A3D0-38B6-923A-101804196691}</Project>
+      <Name>arc</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\ask.vcxproj">
+      <Project>{4B423B66-211C-3884-A635-5C9CF63FD25B}</Project>
+      <Name>ask</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\bitmap.vcxproj">
+      <Project>{84F76E17-E1B2-357F-8E82-E1E5C4E5AC92}</Project>
+      <Name>bitmap</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\blocks.vcxproj">
+      <Project>{9352FB44-A8BD-3279-BD2E-4A91BBC0B62A}</Project>
+      <Name>blocks</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\boxtype.vcxproj">
+      <Project>{D45852A0-A2D9-31BA-8C0C-9EE080B16A01}</Project>
+      <Name>boxtype</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\browser.vcxproj">
+      <Project>{16211766-4332-30CE-927C-ABB58CDFC7C5}</Project>
+      <Name>browser</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\button.vcxproj">
+      <Project>{ABAE7171-B00F-3E27-B808-6A4FB9C3457F}</Project>
+      <Name>button</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\buttons.vcxproj">
+      <Project>{84BAA633-C127-3D8A-AF4B-2508260C8D19}</Project>
+      <Name>buttons</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\cairo_test.vcxproj">
+      <Project>{E9972074-A5EF-39B3-9D64-73E9661FCBBC}</Project>
+      <Name>cairo_test</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\checkers.vcxproj">
+      <Project>{67027874-3C50-3AA7-BF53-E148D8ADA72B}</Project>
+      <Name>checkers</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\clock.vcxproj">
+      <Project>{39E88BB0-D31A-35FF-9C26-170741A02397}</Project>
+      <Name>clock</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\colbrowser.vcxproj">
+      <Project>{19541385-EB5A-3FC3-B866-F3E5DBFA572C}</Project>
+      <Name>colbrowser</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\color_chooser.vcxproj">
+      <Project>{A556D590-8014-3D4F-BCF6-7F1B45386FE3}</Project>
+      <Name>color_chooser</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\cube.vcxproj">
+      <Project>{425E953A-B53C-3400-A321-F9EDCC93F5F6}</Project>
+      <Name>cube</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\cursor.vcxproj">
+      <Project>{72BA2945-8E96-3A8F-8D5A-B9488A4CC053}</Project>
+      <Name>cursor</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\curve.vcxproj">
+      <Project>{ED0AAEB0-DCC8-3FD3-81E6-F1869CB86A28}</Project>
+      <Name>curve</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\demo.vcxproj">
+      <Project>{89E962F7-112F-3CCE-B340-25B3C71695C8}</Project>
+      <Name>demo</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\device.vcxproj">
+      <Project>{7F336D0A-3824-3E87-82A8-9A55FF035AAD}</Project>
+      <Name>device</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\doublebuffer.vcxproj">
+      <Project>{B11A81F9-F054-3EBE-AE3F-B17DD1566BBF}</Project>
+      <Name>doublebuffer</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\editor.vcxproj">
+      <Project>{69E334F1-A29E-30A7-BD38-169EB8C40F82}</Project>
+      <Name>editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\fast_slow.vcxproj">
+      <Project>{3331C9D4-9A14-36AE-A61D-9E5A201F0592}</Project>
+      <Name>fast_slow</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\file_chooser.vcxproj">
+      <Project>{EADFF4B4-272E-30CF-9AE2-FEF57EC36D0F}</Project>
+      <Name>file_chooser</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\src\fltk.vcxproj">
+      <Project>{B57CD828-7DC5-358B-B956-F736BA07E108}</Project>
+      <Name>fltk</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\fltk-versions.vcxproj">
+      <Project>{08430F62-41D9-3BC3-ABF9-E7C0CEBAF9E8}</Project>
+      <Name>fltk-versions</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\src\fltk_forms.vcxproj">
+      <Project>{7C236012-5998-3AB4-9F8B-3D05E5C03278}</Project>
+      <Name>fltk_forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\src\fltk_gl.vcxproj">
+      <Project>{79EA8066-1541-33BC-91AA-1A3FFAD08036}</Project>
+      <Name>fltk_gl</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\src\fltk_images.vcxproj">
+      <Project>{A5B7985D-EF6C-387B-A668-F57DD7DA45E5}</Project>
+      <Name>fltk_images</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\jpeg\fltk_jpeg.vcxproj">
+      <Project>{9F937FCC-2B3D-3F81-9159-60B0D46BC37C}</Project>
+      <Name>fltk_jpeg</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\png\fltk_png.vcxproj">
+      <Project>{C313E79B-36DD-3176-94A6-74B69D59AD07}</Project>
+      <Name>fltk_png</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\zlib\fltk_z.vcxproj">
+      <Project>{C3B09F44-8CFF-3D5D-927E-0555D8330625}</Project>
+      <Name>fltk_z</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\fluid\fluid.vcxproj">
+      <Project>{560AA248-2B1D-33BD-BE10-DDA84BEEE11F}</Project>
+      <Name>fluid</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\fonts.vcxproj">
+      <Project>{1AC9886B-3ADE-3CC4-B225-67688C0C06EE}</Project>
+      <Name>fonts</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\forms.vcxproj">
+      <Project>{61352051-905E-3530-ABE9-2FD7A58F4EE1}</Project>
+      <Name>forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\fractals.vcxproj">
+      <Project>{9177D01C-E0C5-39DB-9EF0-F8582E174C1B}</Project>
+      <Name>fractals</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\fullscreen.vcxproj">
+      <Project>{C8FFE46D-9CB1-3485-A6A9-2B46B0738999}</Project>
+      <Name>fullscreen</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\gl_overlay.vcxproj">
+      <Project>{BCD1C5D3-008B-3E1C-B066-DD777C10CE1B}</Project>
+      <Name>gl_overlay</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\glpuzzle.vcxproj">
+      <Project>{1EF0EA9B-20D9-3BC9-A853-CB808E5C31AA}</Project>
+      <Name>glpuzzle</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\hello.vcxproj">
+      <Project>{3C050663-FA72-3421-85EF-41EA671C97AE}</Project>
+      <Name>hello</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\help_dialog.vcxproj">
+      <Project>{28410DCB-1E16-3974-96EC-9DBA5B932C90}</Project>
+      <Name>help_dialog</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\icon.vcxproj">
+      <Project>{50A38D07-5260-379E-8D48-24E35E1F21E2}</Project>
+      <Name>icon</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\iconize.vcxproj">
+      <Project>{ED033A0F-C2FF-3FE5-A116-10C263CF4036}</Project>
+      <Name>iconize</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\image.vcxproj">
+      <Project>{9A557407-C527-3B31-8715-7B4FE9381BDB}</Project>
+      <Name>image</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\inactive.vcxproj">
+      <Project>{BCD1956F-60AB-32DD-BDB8-0353D2CF770E}</Project>
+      <Name>inactive</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\input.vcxproj">
+      <Project>{0E22C235-D7E7-3344-B1AE-F4D54DD7F8FC}</Project>
+      <Name>input</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\input_choice.vcxproj">
+      <Project>{6D200F36-264C-36E4-A77D-BC11561630E1}</Project>
+      <Name>input_choice</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\keyboard.vcxproj">
+      <Project>{1EEE39A7-0385-3FAC-9432-E9A60134EE71}</Project>
+      <Name>keyboard</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\label.vcxproj">
+      <Project>{9953275F-A7C5-3091-BE5A-30137290CA21}</Project>
+      <Name>label</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\line_style.vcxproj">
+      <Project>{1EBD93C2-CD48-38BA-89D3-D898C8EEE7ED}</Project>
+      <Name>line_style</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\list_visuals.vcxproj">
+      <Project>{25E4399F-DD63-3CA8-8D10-3953CA5D501E}</Project>
+      <Name>list_visuals</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\mandelbrot.vcxproj">
+      <Project>{219624EA-03DD-3A04-A9FF-9CA501AD6323}</Project>
+      <Name>mandelbrot</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\menubar.vcxproj">
+      <Project>{84756430-4FCA-308E-B0C8-F26BCF62A9E8}</Project>
+      <Name>menubar</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\message.vcxproj">
+      <Project>{5398B016-EC8F-3721-ADC2-637F8F719D22}</Project>
+      <Name>message</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\minimum.vcxproj">
+      <Project>{3BF0F69E-D83E-3BC8-B9D6-B6E00FF2CDBF}</Project>
+      <Name>minimum</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\native-filechooser.vcxproj">
+      <Project>{5EB590C6-AB5A-3399-BBBE-C9FD341B4FAD}</Project>
+      <Name>native-filechooser</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\navigation.vcxproj">
+      <Project>{D9AEAC54-0B11-3551-93F2-A10444A89029}</Project>
+      <Name>navigation</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\offscreen.vcxproj">
+      <Project>{CE98C084-6027-324B-B33B-42595BE788BC}</Project>
+      <Name>offscreen</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\output.vcxproj">
+      <Project>{476EA913-316E-31DF-B415-1F0F7C6F8A69}</Project>
+      <Name>output</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\overlay.vcxproj">
+      <Project>{2485F7EF-A019-3217-ACE2-14F0E5684257}</Project>
+      <Name>overlay</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\pack.vcxproj">
+      <Project>{01C20588-6CEC-3A87-B6AE-05B59ED955D0}</Project>
+      <Name>pack</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\pixmap.vcxproj">
+      <Project>{AE514776-26FE-37FF-8B6C-613AAAAB9C7D}</Project>
+      <Name>pixmap</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\pixmap_browser.vcxproj">
+      <Project>{9D52F57B-5472-3E92-A6ED-4DE0B24BA347}</Project>
+      <Name>pixmap_browser</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\preferences.vcxproj">
+      <Project>{4A235C53-BFC7-3090-A6EC-F45CA427C5B0}</Project>
+      <Name>preferences</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\radio.vcxproj">
+      <Project>{3D210C28-DEB7-3D50-8454-6F2F24F49AE8}</Project>
+      <Name>radio</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\resize.vcxproj">
+      <Project>{5F6A47DB-B249-3D62-AAE4-9CFAF95ADB08}</Project>
+      <Name>resize</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\resizebox.vcxproj">
+      <Project>{720579D8-AC23-3742-8419-E07B9282361C}</Project>
+      <Name>resizebox</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\rotated_text.vcxproj">
+      <Project>{42E3C33E-11CE-3224-AA7F-EA4E3C61F048}</Project>
+      <Name>rotated_text</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\scroll.vcxproj">
+      <Project>{5956763F-DABB-32B5-A98C-6D7962B5CB54}</Project>
+      <Name>scroll</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\shape.vcxproj">
+      <Project>{FD0157C6-3BA6-3E2B-80FE-2250409C39FD}</Project>
+      <Name>shape</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\subwindow.vcxproj">
+      <Project>{3ADEA23A-912A-3885-849D-0F510DAA92D4}</Project>
+      <Name>subwindow</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\sudoku.vcxproj">
+      <Project>{CD17889A-A926-3173-AF61-D3BBE2076EC9}</Project>
+      <Name>sudoku</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\symbols.vcxproj">
+      <Project>{AF83C086-4855-3025-8BC3-73C8101B33BA}</Project>
+      <Name>symbols</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\table.vcxproj">
+      <Project>{C8904E12-CF7E-30A1-8970-F1DAD130A5C5}</Project>
+      <Name>table</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\tabs.vcxproj">
+      <Project>{A6CB41F1-313E-32C2-81AD-D5B326BB35C3}</Project>
+      <Name>tabs</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\threads.vcxproj">
+      <Project>{E904C2A3-6C95-3081-A04C-78AA7D40A3F4}</Project>
+      <Name>threads</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\tile.vcxproj">
+      <Project>{E1FB3E4E-3C92-3977-B92E-8D2EEFC19EB7}</Project>
+      <Name>tile</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\tiled_image.vcxproj">
+      <Project>{BCD839B8-2F02-30DC-8F0C-910E949DC249}</Project>
+      <Name>tiled_image</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\tree.vcxproj">
+      <Project>{EC725F3E-EAB6-37A9-8FC6-4F44B7429607}</Project>
+      <Name>tree</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\twowin.vcxproj">
+      <Project>{0BD44B2D-CE50-31C6-8F4B-F4B93299ED68}</Project>
+      <Name>twowin</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\unittests.vcxproj">
+      <Project>{7647C84D-FBCA-31D4-8BC7-AE67FA5242AC}</Project>
+      <Name>unittests</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\utf8.vcxproj">
+      <Project>{AA1D69AF-6AF8-300B-91A2-16FF606E8FC2}</Project>
+      <Name>utf8</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\valuators.vcxproj">
+      <Project>{5C5959A6-8171-3913-9172-A4EC603C8E9B}</Project>
+      <Name>valuators</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\test\windowfocus.vcxproj">
+      <Project>{E6DE86D5-7C0B-381E-905E-56EDAFBB9CC5}</Project>
+      <Name>windowfocus</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

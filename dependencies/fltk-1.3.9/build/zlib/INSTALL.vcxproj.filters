@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\HP ELiteBook\Documents\Year 3\COMP30030 Third Year Project Laboratory\2. Code\skeletonMaker\dependencies\fltk-1.3.9\build\CMakeFiles\c00afe7be48705df461aabfd7f53fdae\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{8885104E-31D3-33BE-99B5-94A9D5B4007D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
