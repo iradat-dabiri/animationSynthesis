@@ -6,7 +6,6 @@
 #include "motion.h"
 #include "distance.h"
 #include "vector.h"
-#include "displaySkeleton.h"
 #include <opencv2/opencv.hpp>
 using namespace cv;
 
@@ -14,8 +13,15 @@ Skeleton* aSkeleton = NULL;
 Motion* aMotion = NULL;
 
 
-double findDistanceRoots(vector a, vector b) {
-    return sqrt(pow(b[0]- a[0], 2) + pow(b[1] - a[1], 2) + pow(b[2] - a[2], 2));
+void jointTraverse(Bone* ptr) {
+    if (ptr != NULL) {
+        printf("%s", ptr->name);
+        printf("%d\n", ptr->dir[0]);
+        printf("%d\n", ptr->dir[1]);
+        printf("%d\n", ptr->dir[2]);
+        hereTraverse(ptr->child);
+        hereTraverse(ptr->sibling);
+    }
 }
 
 void checkBasicLocations(Skeleton * skel){
@@ -26,9 +32,11 @@ void checkBasicLocations(Skeleton * skel){
     printf("%d\n", rootPos[1]);
     printf("%d\n", rootPos[2]);
 
-    //See if you can use Render
-    //Traverse(skel->getRoot(), skel);
-    //pBone->dir[0]
+    jointTraverse(skel->getRoot());
+}
+
+double findDistanceRoots(vector a, vector b) {
+    return sqrt(pow(b[0]- a[0], 2) + pow(b[1] - a[1], 2) + pow(b[2] - a[2], 2));
 }
 
 
