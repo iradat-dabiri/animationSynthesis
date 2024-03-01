@@ -25,7 +25,6 @@ Motion::Motion(char* amc_filename, double scale, Skeleton* pSkeleton_) {
 	m_pPostures = NULL;
 
 	int code = readAMCfile(amc_filename, scale);
-	printf("motion constructor");
 	if (code < 0)
 		throw 1;
 }
@@ -58,6 +57,10 @@ void Motion::SetRootPos(int frameIndex, vector vPos) {
 	m_pPostures[frameIndex].root_pos = vPos;
 }
 
+vector Motion::GetRootPos(Posture InPosture){
+	return InPosture.root_pos;
+}
+
 Posture* Motion::GetPosture(int frameIndex) {
 	if (frameIndex < 0 || frameIndex >= m_NumFrames) {
 		printf("Error in Motion::GetPosture: frame index %d is illegal.\n", frameIndex);
@@ -85,23 +88,21 @@ int Motion::readAMCfile(char* name, double scale) {
 		if (strcmp(str, "") != 0) n++;
 	}
 	file.close();
-
+	
 	//compute number of frames, ignoring the header
 	//there are NUM_BONES_IN_ASF_FILE -2 moving bones and 2 dummy (lhipjoiny and rhipjoint)
 	int numbones = pSkeleton->numBonesInSkel(bone[0]);
 	int movbones = pSkeleton->movBonesInSkel(bone[0]);
 	n = (n - 3) / (movbones + 1);
 	m_NumFrames = n;
-
 	//allocate memory for state vector
 	m_pPostures = new Posture[m_NumFrames];
 	SetPosturesToDefault();
-
 	file.open(name);
 	//process the header (add rotational DOFs if requested)
 	while (1) {
 		file >> str;
-
+		
 		if (strcmp(str, ":FORCE-ALL-JOINTS-BE-3DOF") == 0)
 			pSkeleton->enableAllRotationalDOFs();
 

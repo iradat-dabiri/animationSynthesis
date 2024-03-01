@@ -4,6 +4,7 @@
 #define _PLAYER_H
 
 #include <FL/Fl_Gl_Window.H>
+#include "displaySkeleton.h"
 
 class Player_Gl_Window : public Fl_Gl_Window {
 public:
@@ -11,7 +12,8 @@ public:
   Fl_Gl_Window(x, y, w, h, l) {};
 
   //called to refresh the window 
-  void draw(); 
+  void draw();
+  void draw(DisplaySkeleton* displayer);
 
   //called when an event happens inside the space		
   int handle(int event); 
@@ -36,7 +38,6 @@ typedef struct _CameraT {
 	double atz;
 } CameraT;
 
-void GraphicsInit();
 void display();
 
 #endif

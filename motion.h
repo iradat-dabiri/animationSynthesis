@@ -19,6 +19,7 @@ public:
 	void SetPosture(int frameIndex, Posture InPosture);
 
 	void SetRootPos(int frameIndex, vector vPos);
+	vector GetRootPos(Posture InPosture);
 	void SetBoneRotation(int frameIndex, int boneIndex, vector vRot);
 
 	int getNumFrames() { return m_NumFrames; }

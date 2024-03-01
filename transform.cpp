@@ -27,6 +27,16 @@ void matrix_transform_affine(double m[4][4], double x, double y, double z, doubl
 	pt[2] = m[2][0] * x + m[2][1] * y + m[2][2] * z + m[2][3];
 }
 
+void matrix_mult(double a[][4], double b[][4], double c[][4]) {
+	int i, j, k;
+	for (i = 0; i < 4; i++)
+		for (j = 0; j < 4; j++) {
+			c[i][j] = 0;
+			for (k = 0; k < 4; k++)
+				c[i][j] += a[i][k] * b[k][j];
+		}
+}
+
 void v3_cross(double a[3], double b[3], double c[3]) {
 	c[0] = a[1] * b[2] - a[2] * b[1];
 	c[1] = a[2] * b[0] - a[0] * b[2];
@@ -75,16 +85,6 @@ void rotationZ(double r[][4], double c) {
 	r[1][0] = sin(c); r[1][1] = cos(c);  r[1][2] = 0; r[1][3] = 0;
 	r[2][0] = 0;      r[2][1] = 0;       r[2][2] = 1; r[2][3] = 0;
 	r[3][0] = 0;      r[3][1] = 0;       r[3][2] = 0; r[3][3] = 1;
-}
-
-void matrix_mult(double a[][4], double b[][4], double c[][4]) {
-	int i, j, k;
-	for (i = 0; i < 4; i++)
-		for (j = 0; j < 4; j++) {
-			c[i][j] = 0;
-			for (k = 0; k < 4; k++)
-				c[i][j] += a[i][k] * b[k][j];
-		}
 }
 
 double get_angle(double* v1, double* v2, double* axis) {

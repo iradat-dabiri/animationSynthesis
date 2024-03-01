@@ -28,7 +28,7 @@
 #include "mocapPlayer.h"   		      
 #include "interface.h"  // UI framework built by FLTK (using fluid)
 #include "transform.h"  // utility functions for vector and matrix transformation  
-#include "displaySkeleton.h"
+#include "distance.h"
 
 enum SwitchStatus { OFF, ON };
 
@@ -323,7 +323,7 @@ void DisplaySkeleton::Reset(void) {
 }
 
 //NEEDS UPDATING
-static void RenderWorldAxes() {
+void DisplaySkeleton::RenderWorldAxes() {
 	glBegin(GL_LINES);
 
 	//draw x axis in red, y axis in green, z axis in blue
@@ -342,7 +342,7 @@ static void RenderWorldAxes() {
 }
 
 //NEEDS UPDATING
-void RenderGroundPlane(double groundPlaneSize, double groundPlaneHeight, double rPlane,
+void DisplaySkeleton::RenderGroundPlane(double groundPlaneSize, double groundPlaneHeight, double rPlane,
 	double gPlane, double bPlane, double ambientFskeleton, double diffuseFskeleton,
 	double specularFskeleton, double shininess) {
 	glEnable(GL_POLYGON_OFFSET_FILL);
@@ -380,7 +380,7 @@ void RenderGroundPlane(double groundPlaneSize, double groundPlaneHeight, double 
 }
 
 //NEEDS UPDATING
-void cameraView(void) {
+void DisplaySkeleton::cameraView(void) {
 	glTranslated(camera.tx, camera.ty, camera.tz);
 	glTranslated(camera.atx, camera.aty, camera.atz);
 
@@ -393,12 +393,13 @@ void cameraView(void) {
 }
 
 /*
+#
 * this function is called by Player_Gl_Window::draw(). The display is double buffered,
 * and FLTK swaps buffers when the function returns. The GL context associated with this
 * instance of Player_GL_Window is set to the current context by FLTK when it calls draw().
 */
 //NEEDS UPDATING
-void Redisplay() {
+void DisplaySkeleton::Redisplay() {
 	//clear image buffer to black
 	glClearColor(1.0, 1.0, 1.0, 0);
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT); //clear image, zbuf
@@ -568,7 +569,7 @@ If frameIndex is larger than the number of frames of the motion,
 set the skeleton to the last frame of the motion
 */
 
-void SetSkeletonsToSpecifiedFrame(int frameIndex) {
+void DisplaySkeleton::SetSkeletonsToSpecifiedFrame(int frameIndex) {
 	if (frameIndex < 0)
 	{
 		printf("Error in SetSkeletonsToSpecifiedFrame: frameIndex %d is illegal.\n", frameIndex);
@@ -588,6 +589,7 @@ void SetSkeletonsToSpecifiedFrame(int frameIndex) {
 
 //I have completely skipped the screenshot function, 
 
+//need to define a new one for distance
 void idle(void*) {
 	if (rewindButton == ON) {
 		currentFrameIndex = 0;
@@ -632,7 +634,7 @@ void idle(void*) {
 			}
 			frame_slider->value((double)currentFrameIndex + 1);
 
-			SetSkeletonsToSpecifiedFrame(currentFrameIndex);
+			displayer.SetSkeletonsToSpecifiedFrame(currentFrameIndex);
 		}
 
 		/*
@@ -655,7 +657,7 @@ void idle(void*) {
 				currentFrameIndex = 0;
 			frame_slider->value((double)currentFrameIndex + 1);
 
-			SetSkeletonsToSpecifiedFrame(currentFrameIndex);
+			displayer.SetSkeletonsToSpecifiedFrame(currentFrameIndex);
 			minusOneButton = OFF;
 		}
 
@@ -668,7 +670,7 @@ void idle(void*) {
 				currentFrameIndex = maxFrames - 1;
 			frame_slider->value((double)currentFrameIndex + 1);
 
-			SetSkeletonsToSpecifiedFrame(currentFrameIndex);
+			displayer.SetSkeletonsToSpecifiedFrame(currentFrameIndex);
 			plusOneButton = OFF;
 		}
 	}
@@ -686,12 +688,12 @@ void fslider_callback(Fl_Value_Slider* slider, long val) {
 	rewindButton = OFF;
 	playButton = OFF;
 	repeatButton = OFF;
-	SetSkeletonsToSpecifiedFrame(currentFrameIndex);
+	displayer.SetSkeletonsToSpecifiedFrame(currentFrameIndex);
 	Fl::flush();
 }
 
 //NEEDS UPDATING
-void GraphicsInit() {
+void DisplaySkeleton::GraphicsInit(DisplaySkeleton* displayer) {
 	int red_bits, green_bits, blue_bits;
 	struct { GLint x, y, width, height; } viewport;
 	glEnable(GL_DEPTH_TEST);	/* turn on z-buffer */
@@ -763,7 +765,7 @@ void GraphicsInit() {
 	double groundPlaneShininess = 120.0;
 	displayListGround = glGenLists(1);
 	glNewList(displayListGround, GL_COMPILE);
-	RenderGroundPlane(groundPlaneSize, groundPlaneHeight, groundPlaneR, groundPlaneG, groundPlaneB, groundPlaneAmbient, groundPlaneDiffuse, groundPlaneSpecular, groundPlaneShininess);
+	displayer->RenderGroundPlane(groundPlaneSize, groundPlaneHeight, groundPlaneR, groundPlaneG, groundPlaneB, groundPlaneAmbient, groundPlaneDiffuse, groundPlaneSpecular, groundPlaneShininess);
 	glEndList();
 }
 
@@ -836,32 +838,43 @@ int Player_Gl_Window::handle(int event) {
 	return (handled);  // Returning one acknowledges that we handled this event
 }
 
-//Pre-written draw function
 void Player_Gl_Window::draw() {
+	draw(&displayer);
+}
+
+//Pre-written draw function (edited)
+void Player_Gl_Window::draw(DisplaySkeleton* displayer) {
 	// Upon setup of the window (or when Fl_Gl_Window->invalidate is called), 
 	// the set of functions inside the if block are executed.
 	if (!valid()) {
-		GraphicsInit();
+		displayer->GraphicsInit(displayer);
 	}
 
 	// Redisplay the screen then put the proper buffer on the screen.
-	Redisplay();
+	displayer->Redisplay();
 }
 
 int main(int argc, char** argv) {
+
+	char motions[][20] = { "movements\\walk.asf", 
+		"movements\\walk.amc"};
+	char* skeletonPtr = motions[0];
+	char* motionPtr = motions[1];
+	int done = distanceRoots(skeletonPtr, motionPtr);
+
 	//initialise form, sliders and buttons
 	form = make_window();
+	printf("after form\n");
 	worldAxes_button->value(renderWorldAxes);
+	printf("after world\n");
 	frame_slider->value(1);
+	printf("after frame\n");
 
 	//show form, and do initial draw of model
 	form->show();
 	glwindow->show(); // glwindow is initialized when the form is built
-	printf("%d\n", argc);
-	for (int i = 0; i < argc; i++) {
-		printf("%s\n", argv[i]);
-	}
 
+	/*
 	if (argc > 2) {
 		printf("in if\n");
 		char* filename;
@@ -900,7 +913,6 @@ int main(int argc, char** argv) {
 				frame_slider->maximum((double)maxFrames);
 
 				currentFrameIndex = 0;
-				printf("numSkel got\n");
 			}
 		}
 		else printf("Load a skeleton first. \n");
@@ -910,13 +922,9 @@ int main(int argc, char** argv) {
 		repeatButton = OFF;
 		groundPlane = ON;
 		glwindow->redraw();
-		printf("end if1\n");
 	}
-	else {
-		printf("no");
-	}
+	*/
 
 	Fl::add_idle(idle);
-	printf("idled");
 	return Fl::run();
 }

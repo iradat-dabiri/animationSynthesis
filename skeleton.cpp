@@ -168,7 +168,8 @@ int Skeleton::readASFfile(char* asf_filename, double scale) {
         }
 
         //store the data to the data structure
-        //m_pBoneList[i].idx = name2idx(part); (not sure what this is meant to do yet)
+        m_pBoneList[i].idx = name2idx(part); //(not sure what this is meant to do yet)
+        //printf("%d", m_pBoneList[0].idx);
         if ((!m_pBoneList[i].dofrx) && (!m_pBoneList[i].dofry) && (!m_pBoneList[i].dofrz))
             MOV_BONES_IN_ASF_FILE -= 1;
         m_pBoneList[i].length = length * scale;
@@ -184,7 +185,7 @@ int Skeleton::readASFfile(char* asf_filename, double scale) {
     is.getline(str, 2048);
     removeChar(str);
 
-    //Assign parent/child/sibling relatiionships
+    //Assign parent/child/sibling relationships
     while (1) {
         //read next line
         is.getline(str, 2048);
@@ -438,6 +439,7 @@ void Skeleton::set_bone_shape(Bone *bone){
 Skeleton::Skeleton(char *asf_filename, double scale){
     //the constructor
     sscanf("root", "%s", m_pBoneList[0].name);
+    printf("at skeleton");
     NUM_BONES_IN_ASF_FILE = 1;
     MOV_BONES_IN_ASF_FILE = 1;
     m_pBoneList[0].dofo[0] = 4;

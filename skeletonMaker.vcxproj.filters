@@ -30,13 +30,19 @@
     <ClCompile Include="motion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="displaySkeletonOriginal.cpp">
+    <ClCompile Include="displaySkeleton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="interface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="mocapPlayerDeprecated.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="distanceTry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="distance.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -92,9 +98,13 @@
     <ClInclude Include="dependencies\include\KHR\khrplatform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="distance.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Library Include="dependencies\lib\glfw3.lib" />
     <Library Include="dependencies\lib\glew32s.lib" />
+    <Library Include="..\..\..\..\..\Downloads\opencv\build\x64\vc16\lib\opencv_world490.lib" />
   </ItemGroup>
 </Project>

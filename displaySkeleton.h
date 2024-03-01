@@ -36,6 +36,14 @@ public:
   int GetNumSkeletons(void) {return numSkeletons;}
   Skeleton * GetSkeleton(int skeletonIndex);
   Motion * GetSkeletonMotion(int skeletonIndex);
+  void RenderWorldAxes();
+  void Redisplay();
+  void RenderGroundPlane(double groundPlaneSize, double groundPlaneHeight, double rPlane,
+	  double gPlane, double bPlane, double ambientFskeleton, double diffuseFskeleton,
+	  double specularFskeleton, double shininess);
+  void SetSkeletonsToSpecifiedFrame(int frameIndex);
+  void GraphicsInit(DisplaySkeleton* displayer);
+  void cameraView(void);
 
   void Reset(void);
   
