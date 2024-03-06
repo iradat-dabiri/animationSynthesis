@@ -439,7 +439,6 @@ void Skeleton::set_bone_shape(Bone *bone){
 Skeleton::Skeleton(char *asf_filename, double scale){
     //the constructor
     sscanf("root", "%s", m_pBoneList[0].name);
-    printf("at skeleton");
     NUM_BONES_IN_ASF_FILE = 1;
     MOV_BONES_IN_ASF_FILE = 1;
     m_pBoneList[0].dofo[0] = 4;
@@ -456,6 +455,7 @@ Skeleton::Skeleton(char *asf_filename, double scale){
     m_pBoneList[0].child = NULL;
     //you changed the next two lines, see if it still works
     m_pBoneList[0].dir[0] = m_pBoneList[0].dir[1] =  m_pBoneList[0].dir[2] = 0.;
+    m_pBoneList[0].cdir[0] = m_pBoneList[0].cdir[1] =  m_pBoneList[0].cdir[2] = 0.;
     m_pBoneList[0].axis_x = m_pBoneList[0].axis_y = m_pBoneList[0].axis_z = 0.;
     m_pBoneList[0].length = 0.05;
     m_pBoneList[0].dof = 6;

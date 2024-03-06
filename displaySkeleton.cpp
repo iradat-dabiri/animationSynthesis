@@ -174,7 +174,6 @@ T_k+1 - translation matrix for the k+1th node
 
 Update relation is given by: M_k+1 = M_k * rot_parent_current * R_k+1 * T_k+1
 */
-//NEEDS UPDATING
 void DisplaySkeleton::DrawBone(Bone* pBone, int skelNum) {
     static double z_dir[3] = { 0.0, 0.0, 1.0 };
     double r_axis[3], theta;
@@ -234,7 +233,6 @@ void DisplaySkeleton::DrawBone(Bone* pBone, int skelNum) {
 //traverse the hierarchy starting from the root
 //every node has one child, and each node can have mutiple siblings
 //the algorithm draws the current node, visits its child and then its siblings
-//NEEDS UPDATING
 void DisplaySkeleton::Traverse(Bone* ptr, int skelNum) {
     if (ptr != NULL) {
         glPushMatrix();
@@ -529,7 +527,6 @@ void load_callback(Fl_Button* button, void*) {
 		} //if lastSkeleton > lastMotion
 	}
 	glwindow->redraw();
-	printf("motion loaded");
 }
 
 void reload_callback(Fl_Button* button, void*) {
@@ -606,24 +603,6 @@ void idle(void*) {
 	}
 
 	if (playButton == ON) {
-		//currentFrameIndex = (int)currentFrameIndexDoublePrecision;
-		//printf("%d", currentFrameIndex);
-
-		/*if (currentFrameIndex >= maxFrames)
-		{
-			if (repeatButton == ON)
-			{
-				currentFrameIndex = 0;
-				currentFrameIndexDoublePrecision = 0.0;
-			}
-			else  // repeat button is OFF
-			{
-				currentFrameIndex = maxFrames - 1;
-				currentFrameIndexDoublePrecision = currentFrameIndex;
-				playButton = OFF;  // important, especially in "recording" mode
-			}
-		}*/
-
 		if (displayer.GetNumSkeletons() != 0)
 		{
 			currentFrameIndex++;
@@ -636,17 +615,6 @@ void idle(void*) {
 
 			displayer.SetSkeletonsToSpecifiedFrame(currentFrameIndex);
 		}
-
-		/*
-		if (currentFrameIndex < 0) {
-			currentFrameIndex = 0;
-			currentFrameIndexDoublePrecision = 0.0;
-		}
-
-		printf("%d", currentFrameIndex);
-		SetSkeletonsToSpecifiedFrame(currentFrameIndex);
-
-		frame_slider->value((double)currentFrameIndex + 1);*/
 	}  // if(playButton == ON)
 
 	if (minusOneButton == ON)
@@ -856,19 +824,17 @@ void Player_Gl_Window::draw(DisplaySkeleton* displayer) {
 
 int main(int argc, char** argv) {
 
-	char motions[][20] = { "movements\\walk.asf", 
-		"movements\\walk.amc"};
+	char motions[][100] = { "movements\\martialArts.asf", 
+		"movements\\martialArts.amc", "movements\\newMartialArts.amc"};
 	char* skeletonPtr = motions[0];
 	char* motionPtr = motions[1];
-	int done = distanceRoots(skeletonPtr, motionPtr);
+	char* newMotionPtr = motions[2];
+	int done = distanceRoots(skeletonPtr, motionPtr, newMotionPtr);
 
 	//initialise form, sliders and buttons
 	form = make_window();
-	printf("after form\n");
 	worldAxes_button->value(renderWorldAxes);
-	printf("after world\n");
 	frame_slider->value(1);
-	printf("after frame\n");
 
 	//show form, and do initial draw of model
 	form->show();
@@ -876,10 +842,8 @@ int main(int argc, char** argv) {
 
 	/*
 	if (argc > 2) {
-		printf("in if\n");
 		char* filename;
 		filename = argv[1];
-		printf("%s", filename);
 		if (filename != NULL) {
 			//Read skeleton from asf file
 			pSkeleton = new Skeleton(filename, MOCAP_SCALE);
@@ -890,12 +854,9 @@ int main(int argc, char** argv) {
 			displayer.LoadSkeleton(pSkeleton);
 			lastSkeleton++;
 		}
-		printf("file read\n");
 
 		if (displayer.GetNumSkeletons()) {
-			printf("in if 2\n");
 			filename = argv[2];
-			printf("%s", filename);
 			if (filename != NULL) {
 				//read motion file and create a motion
 				pMotion = new Motion(filename, MOCAP_SCALE, pSkeleton);

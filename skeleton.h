@@ -10,6 +10,7 @@ struct Bone {
 	int idx;
 
 	double dir[3];
+	double cdir[3];
 
 	double length; 
 

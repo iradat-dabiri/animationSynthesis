@@ -143,7 +143,6 @@
   <ItemGroup>
     <ClCompile Include="displaySkeleton.cpp" />
     <ClCompile Include="distance.cpp" />
-    <ClCompile Include="distanceTry.cpp" />
     <ClCompile Include="interface.cpp" />
     <ClCompile Include="mocapPlayerDeprecated.cpp" />
     <ClCompile Include="motion.cpp" />
