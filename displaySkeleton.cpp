@@ -811,7 +811,7 @@ void Player_Gl_Window::draw() {
 	draw(&displayer);
 }
 
-//Pre-written draw function (edited)
+//Pre-written draw function, edited for the displayer
 void Player_Gl_Window::draw(DisplaySkeleton* displayer) {
 	// Upon setup of the window (or when Fl_Gl_Window->invalidate is called), 
 	// the set of functions inside the if block are executed.
@@ -823,73 +823,32 @@ void Player_Gl_Window::draw(DisplaySkeleton* displayer) {
 	displayer->Redisplay();
 }
 
-int main(int argc, char** argv) {
-
+int main() {
 	char motions[][100] = { "movements\\walk.asf", 
-		"movements\\walk.amc", "movements\\newAllWalk.amc"};
+		"movements\\walk.amc",  "movements\\newWalk.amc", "movements\\newAllWalk.amc"};
 	char* skeletonPtr = motions[0];
 	char* motionPtr = motions[1];
-	char* newMotionPtr = motions[2];
-	int done = distanceRoots(skeletonPtr, motionPtr, newMotionPtr);
-	int done2 = distance(skeletonPtr, motionPtr, newMotionPtr);
+	char* newMotionPtr1 = motions[2];
+	char* newMotionPtr2 = motions[3];
+	int done = distanceRoots(skeletonPtr, motionPtr, newMotionPtr1, 100, 10);
+	//int done2 = distance(skeletonPtr, motionPtr, newMotionPtr2);
 
 	//initialise form, sliders and buttons
 	form = make_window();
-	smallForm = mini_window();
 	worldAxes_button->value(renderWorldAxes);
 	frame_slider->value(1);
 
 	//show form, and do initial draw of model
 	form->show();
 	glwindowMain->show(); // glwindow is initialized when the form is built
-	smallForm->show();
-	glwindowMini->show();
 
-	/*
-	if (argc > 2) {
-		char* filename;
-		filename = argv[1];
-		if (filename != NULL) {
-			//Read skeleton from asf file
-			pSkeleton = new Skeleton(filename, MOCAP_SCALE);
-
-			//Set the rotations for all bones in their local coordinate system to 0
-			//Set root position to (0, 0, 0)
-			pSkeleton->setBasePosture();
-			displayer.LoadSkeleton(pSkeleton);
-			lastSkeleton++;
-		}
-
-		if (displayer.GetNumSkeletons()) {
-			filename = argv[2];
-			if (filename != NULL) {
-				//read motion file and create a motion
-				pMotion = new Motion(filename, MOCAP_SCALE, pSkeleton);
-				//set sampled motion for dispplay
-				displayer.LoadMotion(pMotion);
-				lastMotion++;
-				//tell skeleton to perform the first pose
-				pSkeleton->setPosture(*(displayer.GetSkeletonMotion(0)->GetPosture(0)));
-				//set skeleton to perform the first pose
-				int currentFrames = displayer.GetSkeletonMotion(0)->getNumFrames();
-				if (currentFrames > maxFrames) {
-					maxFrames = currentFrames;
-					frame_slider->maximum((double)maxFrames);
-				}
-				frame_slider->maximum((double)maxFrames);
-
-				currentFrameIndex = 0;
-			}
-		}
-		else printf("Load a skeleton first. \n");
-
-		framesIncrementDoublePrecision = 1.0;            // Current frame and frame increment
-		playButton = ON;
-		repeatButton = OFF;
-		groundPlane = ON;
-		glwindow->redraw();
+	//show individual frame
+	int showMini = 0;
+	if (showMini){
+		smallForm = mini_window();
+		smallForm->show();
+		glwindowMini->show();
 	}
-	*/
 
 	Fl::add_idle(idle);
 	return Fl::run();
