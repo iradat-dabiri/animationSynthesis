@@ -19,7 +19,24 @@ Fl_Value_Slider* frame_slider = (Fl_Value_Slider*)0;
 
 Fl_Light_Button* worldAxes_button = (Fl_Light_Button*)0;
 
-Player_Gl_Window* glwindow = (Player_Gl_Window*)0;
+Player_Gl_Window* glwindowMain = (Player_Gl_Window*)0;
+Player_Gl_Window* glwindowMini = (Player_Gl_Window*)0;
+
+Fl_Window* mini_window() {
+	Fl_Window* w; {
+		Fl_Window* o = main_window = new Fl_Window(640, 480, "Motion Capture Viewer");
+		w = o; { 
+			Fl_Group* o = new Fl_Group(10, 485, 615, 140); 
+			{
+			Player_Gl_Window* o = glwindowMini = new Player_Gl_Window(0, 0, 640, 480, "label");
+			o->box(FL_DOWN_FRAME);
+			o->labeltype(FL_NO_LABEL);
+			}
+		}
+		o->end();
+	}
+	return w;
+}
 
 Fl_Window* make_window() {
 	Fl_Window* w; {
@@ -78,7 +95,7 @@ Fl_Window* make_window() {
 		} //FL_group
 
 		{
-			Player_Gl_Window* o = glwindow = new Player_Gl_Window(5, 5, 640, 480, "label");
+			Player_Gl_Window* o = glwindowMain = new Player_Gl_Window(5, 5, 640, 480, "label");
 			o->box(FL_DOWN_FRAME);
 			o->labeltype(FL_NO_LABEL);
 		}

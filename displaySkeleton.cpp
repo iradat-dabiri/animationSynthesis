@@ -38,6 +38,7 @@ Skeleton* pSkeleton = NULL;
 Motion* pMotion = NULL;
 
 Fl_Window* form = NULL; // Global form 
+Fl_Window* smallForm = NULL;
 MouseT mouse;    // Keeping track of mouse input 
 CameraT camera;  // Structure about camera setting 
 
@@ -243,7 +244,7 @@ void DisplaySkeleton::Traverse(Bone* ptr, int skelNum) {
     }
 }
 
-//draw the skeleton NEEDS UPDATING
+//draw the skeleton
 void DisplaySkeleton::Render(RenderMode renderMode_) {
     renderMode = renderMode_;
 
@@ -441,7 +442,7 @@ void DisplaySkeleton::Redisplay() {
 
 void renderWorldAxes_callback(Fl_Light_Button* obj, long val) {
 	renderWorldAxes = (SwitchStatus)worldAxes_button->value();
-	glwindow->redraw();
+	glwindowMain->redraw();
 }
 
 void resetScene_callback(Fl_Button* button, void*)
@@ -453,7 +454,7 @@ void resetScene_callback(Fl_Button* button, void*)
 	lastMotion = -1;
 	displayer.Reset();
 	maxFrames = 0;
-	glwindow->redraw();
+	glwindowMain->redraw();
 	framesIncrementDoublePrecision = 1.0;
 	currentFrameIndex = 0;
 	currentFrameIndexDoublePrecision = 0.0;
@@ -498,7 +499,7 @@ void load_callback(Fl_Button* button, void*) {
 				//set root position to (0, 0, 0)
 				pSkeleton->setBasePosture();
 				displayer.LoadSkeleton(pSkeleton);
-				glwindow->redraw();
+				glwindowMain->redraw();
 			}
 		}
 	}
@@ -521,12 +522,12 @@ void load_callback(Fl_Button* button, void*) {
 				frame_slider->value(currentFrameIndex);
 				frame_slider->maximum((double)maxFrames);
 				frame_slider->redraw();
-				glwindow->redraw();
+				glwindowMain->redraw();
 				Fl::flush();
 			}
 		} //if lastSkeleton > lastMotion
 	}
-	glwindow->redraw();
+	glwindowMain->redraw();
 }
 
 void reload_callback(Fl_Button* button, void*) {
@@ -545,7 +546,7 @@ void reload_callback(Fl_Button* button, void*) {
 	frame_slider->value(currentFrameIndex);
 	frame_slider->redraw();
 	Fl::flush();
-	glwindow->redraw();
+	glwindowMain->redraw();
 }
 
 void play_callback(Fl_Button* button, void*) {
@@ -647,7 +648,7 @@ void idle(void*) {
 
 	previousPlayButtonStatus = playButton; // Super important updating
 
-	glwindow->redraw();
+	glwindowMain->redraw();
 }
 
 void fslider_callback(Fl_Value_Slider* slider, long val) {
@@ -801,7 +802,7 @@ int Player_Gl_Window::handle(int event) {
 
 	prev_x = mouse.x;
 	prev_y = mouse.y;
-	glwindow->redraw();
+	glwindowMain->redraw();
 
 	return (handled);  // Returning one acknowledges that we handled this event
 }
@@ -824,21 +825,25 @@ void Player_Gl_Window::draw(DisplaySkeleton* displayer) {
 
 int main(int argc, char** argv) {
 
-	char motions[][100] = { "movements\\martialArts.asf", 
-		"movements\\martialArts.amc", "movements\\newMartialArts.amc"};
+	char motions[][100] = { "movements\\walk.asf", 
+		"movements\\walk.amc", "movements\\newAllWalk.amc"};
 	char* skeletonPtr = motions[0];
 	char* motionPtr = motions[1];
 	char* newMotionPtr = motions[2];
 	int done = distanceRoots(skeletonPtr, motionPtr, newMotionPtr);
+	int done2 = distance(skeletonPtr, motionPtr, newMotionPtr);
 
 	//initialise form, sliders and buttons
 	form = make_window();
+	smallForm = mini_window();
 	worldAxes_button->value(renderWorldAxes);
 	frame_slider->value(1);
 
 	//show form, and do initial draw of model
 	form->show();
-	glwindow->show(); // glwindow is initialized when the form is built
+	glwindowMain->show(); // glwindow is initialized when the form is built
+	smallForm->show();
+	glwindowMini->show();
 
 	/*
 	if (argc > 2) {

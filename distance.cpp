@@ -12,6 +12,14 @@ using namespace cv;
 Skeleton* aSkeleton = NULL;
 Motion* aMotion = NULL;
 Motion* madeMotion = NULL;
+cv::Point clickedPoint;
+
+void onMouse(int event, int x, int y, int flags, void* userdata) {
+    if (event == cv::EVENT_LBUTTONDOWN) {
+        clickedPoint = cv::Point(x, y);
+        std::cout << "Clicked position: " << clickedPoint << std::endl;
+    }
+}
 
 bool arrayInArray(std::vector<std::vector<double>> arr, int size, int index[2]) {
     for (int i = 0; i < size; ++i) {
@@ -51,6 +59,10 @@ void checkBasicLocations(Skeleton * skel){
     double rootPos[3];
     skel->GetRootPosGlobal(rootPos);
     printf("%d %d %d\n", rootPos[0], rootPos[1], rootPos[2]);
+    if (aMotion) {
+        vector root = aMotion->GetRootPos(*aMotion->GetPosture(1));
+        std::cout << "posture position" << root[0] << root[1] << root[2] << std::endl;
+    }
     jointTraverse(skel->getRoot());
 }
 
@@ -58,17 +70,16 @@ double findDistanceRoots(vector a, vector b) {
     return sqrt(pow(b[0]- a[0], 2) + pow(b[1] - a[1], 2) + pow(b[2] - a[2], 2));
 }
 
-
 int distanceRoots(char *asf_filename, char *amc_filename, char *new_amc_filename) { 
     //get skeleton
     aSkeleton = new Skeleton(asf_filename, MOCAP_SCALE);
-    //checkBasicLocations(aSkeleton);
+    checkBasicLocations(aSkeleton);
 
     //get all postures
     aMotion = new Motion(amc_filename, MOCAP_SCALE, aSkeleton);
     int frames = aMotion->getNumFrames();
     aSkeleton->setPosture(*(aMotion->GetPosture(1)));
-    //checkBasicLocations(aSkeleton);
+    checkBasicLocations(aSkeleton);
 
     // Create a vector of vectors to represent the 2D array
     std::vector<std::vector<double>> matrix(frames, std::vector<double>(frames));
@@ -122,19 +133,22 @@ int distanceRoots(char *asf_filename, char *amc_filename, char *new_amc_filename
         }
     }
     // Display the image
+    //cv::setMouseCallback("Distance Image", onMouse);
     imshow("Distance Image", image);
+    cv::setMouseCallback("Distance Image", onMouse);
     imwrite("distance.png", image);
 
     //you want to fill a 1D array with the frame numbers that will make up a motion
     //to fill the array, we find the smallest distance of the row, and check that the frame has not already been used
     //with that array, you will fill madeMotion with the frames of aMotion in the correct order
-    int length = 200;
+    int length = 10;
     int start =100;
     std::vector<std::vector<double>> motionIndexes(length, std::vector<double>(2));
 
     for(int i = 0; i < length; i++){
         double lowest = largest;
         int position[2];
+        position[0] = start;
         for(int j = 0; j < frames; j++){
             //if i wanted to check for the specific position, but I am checking for the frame itself
             //otherwise it can go in a circle
@@ -143,13 +157,10 @@ int distanceRoots(char *asf_filename, char *amc_filename, char *new_amc_filename
             if (!inArray(motionIndexes, length, j)){
                 if (matrix[start][j] < lowest && j != start) {
                     lowest = matrix[start][j];
-                    position[0] = start;
                     position[1] = j;
-                    //printf("%d", j);
                 }
             }
         }
-        //printf("%d\n", lowest);
         printf("%d %d\n", position[0], position[1]);
         motionIndexes[i][0] = position[0];
         motionIndexes[i][1] = start = position[1];

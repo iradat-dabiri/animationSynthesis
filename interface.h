@@ -31,8 +31,10 @@ extern void fslider_callback(Fl_Value_Slider*, long);
 extern Fl_Light_Button* worldAxes_button;
 extern void renderWorldAxes_callback(Fl_Light_Button*, long);
 
-extern Player_Gl_Window* glwindow;
+extern Player_Gl_Window* glwindowMain;
+extern Player_Gl_Window* glwindowMini;
 
 Fl_Window* make_window();
+Fl_Window* mini_window();
 
 #endif
