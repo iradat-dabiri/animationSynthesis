@@ -8,7 +8,6 @@ bool arrayInArray(std::vector<std::vector<double>> arr, int size, int index[2]);
 bool inArray(std::vector<std::vector<double>> arr, int size, int index);
 double findDistanceRoots(vector a, vector b);
 
-int distanceRoots(char *asf_filename, char *amc_filename, char *new_amc_filename, int length, int start);
-int distance(char *asf_filename, char *amc_filename, char *new_amc_filename);
+int distance(char *asf_filename, char *amc_filename, char *new_amc_filename, int length, int start, int all);
 
 #endif

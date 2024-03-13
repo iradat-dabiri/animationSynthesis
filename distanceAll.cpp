@@ -14,7 +14,7 @@ Motion* bMotion = NULL;
 Motion* madebMotion = NULL;
 cv::Point clickedPointb;
 
-int distance(char* asf_filename, char* amc_filename, char* new_amc_filename) {
+int distanceDeprecated(char* asf_filename, char* amc_filename, char* new_amc_filename) {
     //get skeleton
     bSkeleton = new Skeleton(asf_filename, MOCAP_SCALE);
 

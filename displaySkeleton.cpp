@@ -825,12 +825,12 @@ void Player_Gl_Window::draw(DisplaySkeleton* displayer) {
 
 int main() {
 	char motions[][100] = { "movements\\walk.asf", 
-		"movements\\walk.amc",  "movements\\newWalk.amc", "movements\\newAllWalk.amc"};
+		"movements\\walkMartial.amc",  "movements\\newWalkMartial.amc", "movements\\newAllWalk.amc"};
 	char* skeletonPtr = motions[0];
 	char* motionPtr = motions[1];
 	char* newMotionPtr1 = motions[2];
 	char* newMotionPtr2 = motions[3];
-	int done = distanceRoots(skeletonPtr, motionPtr, newMotionPtr1, 100, 10);
+	int done = distance(skeletonPtr, motionPtr, newMotionPtr1, 100, 10, 1);
 	//int done2 = distance(skeletonPtr, motionPtr, newMotionPtr2);
 
 	//initialise form, sliders and buttons
