@@ -39,9 +39,6 @@
     <ClCompile Include="distance.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="distanceAll.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="motion.h">

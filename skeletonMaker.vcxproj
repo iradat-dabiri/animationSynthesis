@@ -143,7 +143,6 @@
   <ItemGroup>
     <ClCompile Include="displaySkeleton.cpp" />
     <ClCompile Include="distance.cpp" />
-    <ClCompile Include="distanceAll.cpp" />
     <ClCompile Include="interface.cpp" />
     <ClCompile Include="motion.cpp" />
     <ClCompile Include="posture.cpp" />

@@ -15,6 +15,7 @@ Motion* madeMotion = NULL;
 cv::Point clickedPoint;
 double largest;
 
+//allows the determining of the points in the image matrix
 void onMouse(int event, int x, int y, int flags, void* userdata) {
     if (event == cv::EVENT_LBUTTONDOWN) {
         clickedPoint = cv::Point(x, y);
@@ -22,6 +23,7 @@ void onMouse(int event, int x, int y, int flags, void* userdata) {
     }
 }
 
+//checks if the frame is already in the given motion, so that we do not go in circles
 bool inArray(std::vector<std::vector<double>> arr, int size, int index[2]) {
     for (int i = 0; i < size; ++i) {
         if (arr[i][0] == index[0] && arr[i][1] == index[1]) { return true; } //pair exists in array
@@ -36,6 +38,7 @@ bool inArray(std::vector<std::vector<double>> arr, int size, int index) {
     return false;  // Number does not exist in the array
 }
 
+//creates a graph walk on the matrix based on the next best frame that is not already in the walk
 std::vector<std::vector<double>> walk(int frames, int start, int length, std::vector<std::vector<double>> arrIndexes, std::vector<std::vector<double>> arr){
     for(int i = 0; i < length; i++){
         double lowest = largest;
@@ -70,18 +73,20 @@ std::vector<std::vector<double>> walk(int frames, int start, int length, std::ve
     return arrIndexes;
 }
 
+//finds the euclidean distance between two joints
 double findDistanceRoots(vector a, vector b) {
     return sqrt(pow(b[0]- a[0], 2) + pow(b[1] - a[1], 2) + pow(b[2] - a[2], 2));
 }
 
+//compares all the joints of two postures
 std::vector<std::vector<double>> compare(int frames, std::vector<std::vector<double>> arr, int all){
     std::ofstream outputFile("array.txt");
     for(int i = 0; i < frames; i++){
-        Posture* currentPosture = aMotion->GetPosture(i);
+        Posture* currentPosture = aMotion->getPosture(i);
         vector rootPos = aMotion->GetRootPos(*currentPosture);
         if (all) { aSkeleton->setPosture(*currentPosture); }
         for(int j = 0; j < frames; j++){
-            Posture* tempPosture = aMotion->GetPosture(j);
+            Posture* tempPosture = aMotion->getPosture(j);
             vector tempPos = aMotion->GetRootPos(*tempPosture);
             arr[i][j] = findDistanceRoots(rootPos, tempPos);
             if (all){
@@ -106,6 +111,7 @@ std::vector<std::vector<double>> compare(int frames, std::vector<std::vector<dou
     return arr;
 }
 
+//normalises the matrix for imaging purposes
 std::vector<std::vector<double>> normal(int frames, std::vector<std::vector<double>> arrNorm, std::vector<std::vector<double>> arr){
     std::ofstream outputFile("arrayNormalised.txt");
     // Use std::transform to divide each element in the array by the divisor
@@ -162,7 +168,7 @@ int distance(char *asf_filename, char *amc_filename, char *new_amc_filename, int
     
     madeMotion = new Motion(length, aSkeleton);
     for(int i = 0; i < length; i++){
-        madeMotion->SetPosture(i, *(aMotion->GetPosture(motionIndexes[i][0])));
+        madeMotion->SetPosture(i, *(aMotion->getPosture(motionIndexes[i][0])));
     }
     madeMotion->writeAMCfile(new_amc_filename, MOCAP_SCALE);
 

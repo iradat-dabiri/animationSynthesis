@@ -2,7 +2,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #endif
 
-
 #include <cstdio>
 #include <cstring>
 #include <cmath>
@@ -27,7 +26,6 @@
 #include "types.h"
 #include "mocapPlayer.h"   		      
 #include "interface.h"  // UI framework built by FLTK (using fluid)
-#include "transform.h"  // utility functions for vector and matrix transformation  
 #include "distance.h"
 
 enum SwitchStatus { OFF, ON };
@@ -37,10 +35,10 @@ DisplaySkeleton displayer;
 Skeleton* pSkeleton = NULL;
 Motion* pMotion = NULL;
 
-Fl_Window* form = NULL; // Global form 
+Fl_Window* form = NULL; // global form 
 Fl_Window* smallForm = NULL;
-MouseT mouse;    // Keeping track of mouse input 
-CameraT camera;  // Structure about camera setting 
+MouseT mouse;    // keeping track of mouse input 
+CameraT camera;  // structure about camera setting 
 
 SwitchStatus playButton = OFF;
 SwitchStatus minusOneButton = OFF;
@@ -57,16 +55,10 @@ int lastMotion = -1;
 
 char lastMotionFilename[FILENAME_MAX];
 
-SwitchStatus renderWorldAxes = ON;
+SwitchStatus renderWorldAxesButton = ON;
 
-const double standardFPS = 120.0;
-double expectedFPS = standardFPS;
-// maximum number of frames among all the motions loaded so far
-int maxFrames = 0;
-// Current frame and frame increment
+int maxFrames = 0; // current frame and frame increment
 int currentFrameIndex = 0;
-double currentFrameIndexDoublePrecision = 0.0;
-double framesIncrementDoublePrecision = 1.0;
 
 float DisplaySkeleton::jointColours[NUMBER_JOINT_COLOURS][3] = {
   {0.0f, 1.0f, 0.0f},  // GREEN
@@ -83,10 +75,10 @@ DisplaySkeleton::DisplaySkeleton(void) {
     }
 }
 
-DisplaySkeleton::~DisplaySkeleton(void) { Reset(); }
+DisplaySkeleton::~DisplaySkeleton(void) { reset(); }
 
-//draws the world coordinate axis NEEDS UPDATING
-void DisplaySkeleton::DrawSpotJointAxis(void) {
+//draws the world coordinate axis
+void DisplaySkeleton::drawSpotJointAxis(void) {
     GLfloat axisLength = 0.5f;
     glBegin(GL_LINES);
     //draw x axis in red, y in green and z in blue
@@ -104,11 +96,11 @@ void DisplaySkeleton::DrawSpotJointAxis(void) {
     glEnd();
 }
 
-//build display lists for bones NEEDS UPDATING
-void DisplaySkeleton::SetDisplayList(int skeletonID, Bone* bone, GLuint *pBoneList){
+//build display lists for bones
+void DisplaySkeleton::setDisplayList(int skeletonID, Bone* bone, GLuint *pBoneList){
     GLUquadricObj* qobj;
-    int numbones = m_pSkeleton[skeletonID]->numBonesInSkel(bone[0]);
-    *pBoneList = glGenLists(numbones);
+    int numBones = m_pSkeleton[skeletonID]->numBonesInSkel(bone[0]);
+    *pBoneList = glGenLists(numBones);
     qobj = gluNewQuadric();
 
     gluQuadricDrawStyle(qobj, GLU_FILL); //got rid of the cast to GLenum, looked like gluQuadricDrawStyle(qobj, (GLenum) GLU_SMOOTH);
@@ -134,7 +126,7 @@ void DisplaySkeleton::SetDisplayList(int skeletonID, Bone* bone, GLuint *pBoneLi
     double boneRadius = 0.10;
     double sizeDifferenceJointAndBone = 0.05;
 
-    for (int j = 0; j < numbones; j++) {
+    for (int j = 0; j < numBones; j++) {
         glNewList(*pBoneList + j, GL_COMPILE);
         glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, jointAmbient);
         glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, jointDiffuse);
@@ -175,7 +167,7 @@ T_k+1 - translation matrix for the k+1th node
 
 Update relation is given by: M_k+1 = M_k * rot_parent_current * R_k+1 * T_k+1
 */
-void DisplaySkeleton::DrawBone(Bone* pBone, int skelNum) {
+void DisplaySkeleton::drawBone(Bone* pBone, int skelNum) {
     static double z_dir[3] = { 0.0, 0.0, 1.0 };
     double r_axis[3], theta;
 
@@ -187,7 +179,7 @@ void DisplaySkeleton::DrawBone(Bone* pBone, int skelNum) {
         GLint lightingStatus;
         glGetIntegerv(GL_LIGHTING, &lightingStatus);
         glDisable(GL_LIGHTING);
-        DrawSpotJointAxis();
+        drawSpotJointAxis();
         if (lightingStatus)
             glEnable(GL_LIGHTING);
     }
@@ -234,18 +226,18 @@ void DisplaySkeleton::DrawBone(Bone* pBone, int skelNum) {
 //traverse the hierarchy starting from the root
 //every node has one child, and each node can have mutiple siblings
 //the algorithm draws the current node, visits its child and then its siblings
-void DisplaySkeleton::Traverse(Bone* ptr, int skelNum) {
+void DisplaySkeleton::traverse(Bone* ptr, int skelNum) {
     if (ptr != NULL) {
         glPushMatrix();
-        DrawBone(ptr, skelNum);
-        Traverse(ptr->child, skelNum);
+        drawBone(ptr, skelNum);
+        traverse(ptr->child, skelNum);
         glPopMatrix();
-        Traverse(ptr->sibling, skelNum);
+        traverse(ptr->sibling, skelNum);
     }
 }
 
 //draw the skeleton
-void DisplaySkeleton::Render(RenderMode renderMode_) {
+void DisplaySkeleton::render(RenderMode renderMode_) {
     renderMode = renderMode_;
 
     glPushMatrix();
@@ -264,20 +256,20 @@ void DisplaySkeleton::Render(RenderMode renderMode_) {
         glRotatef(float(rotationAngle[0]), 1.0f, 0.0f, 0.0f);
         glRotatef(float(rotationAngle[1]), 0.0f, 1.0f, 0.0f);
         glRotatef(float(rotationAngle[2]), 0.0f, 0.0f, 1.0f);
-        Traverse(m_pSkeleton[i]->getRoot(), i);
+        traverse(m_pSkeleton[i]->getRoot(), i);
 
         glPopMatrix();
     }
     glPopMatrix();
 }
 
-void DisplaySkeleton::LoadMotion(Motion* pMotion) {
+void DisplaySkeleton::loadMotion(Motion* pMotion) {
     //always load the motion for the latest skeleton
     if (m_pMotion[numSkeletons - 1] != NULL) delete m_pMotion[numSkeletons - 1];
     m_pMotion[numSkeletons - 1] = pMotion;
 }
 
-void DisplaySkeleton::LoadSkeleton(Skeleton* pSkeleton) {
+void DisplaySkeleton::loadSkeleton(Skeleton* pSkeleton) {
     if (numSkeletons >= MAX_SKELS) return;
 
     m_pSkeleton[numSkeletons] = pSkeleton;
@@ -285,28 +277,27 @@ void DisplaySkeleton::LoadSkeleton(Skeleton* pSkeleton) {
     //create the display list for the skeleton
     //all the bones are the elongated spheres centred at (0, 0, 0)
     //the axis of elongation is the X axis
-    SetDisplayList(numSkeletons, m_pSkeleton[numSkeletons]->getRoot(), &m_BoneList[numSkeletons]);
+    setDisplayList(numSkeletons, m_pSkeleton[numSkeletons]->getRoot(), &m_BoneList[numSkeletons]);
     numSkeletons++;
 }
 
-Motion* DisplaySkeleton::GetSkeletonMotion(int skeletonIndex) {
+Motion* DisplaySkeleton::getSkeletonMotion(int skeletonIndex) {
     if (skeletonIndex < 0 || skeletonIndex >= MAX_SKELS) {
-        printf("Error in DisplaySkeleton::GetSkeletonMotion: index %d is illegal.\n", skeletonIndex);
+        printf("Error in DisplaySkeleton::getSkeletonMotion: index %d is illegal.\n", skeletonIndex);
         exit(0);
     }
     return m_pMotion[skeletonIndex];
 }
 
-Skeleton* DisplaySkeleton::GetSkeleton(int skeletonIndex) {
+Skeleton* DisplaySkeleton::getSkeleton(int skeletonIndex) {
     if (skeletonIndex < 0 || skeletonIndex >= numSkeletons) {
-        printf("Error in DisplaySkeleton::GetSkeleton: skeleton index %d is illegal.\n", skeletonIndex);
+        printf("Error in DisplaySkeleton::getSkeleton: skeleton index %d is illegal.\n", skeletonIndex);
         exit(0);
     }
     return m_pSkeleton[skeletonIndex];
 }
 
-//NEEDS UPDATING
-void DisplaySkeleton::Reset(void) {
+void DisplaySkeleton::reset(void) {
     for (int skeletonIndex = 0; skeletonIndex < MAX_SKELS; skeletonIndex++) {
         if (m_pSkeleton[skeletonIndex != NULL]) {
             delete(m_pSkeleton[skeletonIndex]);
@@ -321,8 +312,7 @@ void DisplaySkeleton::Reset(void) {
     numSkeletons = 0;
 }
 
-//NEEDS UPDATING
-void DisplaySkeleton::RenderWorldAxes() {
+void DisplaySkeleton::renderWorldAxes() {
 	glBegin(GL_LINES);
 
 	//draw x axis in red, y axis in green, z axis in blue
@@ -340,8 +330,7 @@ void DisplaySkeleton::RenderWorldAxes() {
 	glEnd();
 }
 
-//NEEDS UPDATING
-void DisplaySkeleton::RenderGroundPlane(double groundPlaneSize, double groundPlaneHeight, double rPlane,
+void DisplaySkeleton::renderGroundPlane(double groundPlaneSize, double groundPlaneHeight, double rPlane,
 	double gPlane, double bPlane, double ambientFskeleton, double diffuseFskeleton,
 	double specularFskeleton, double shininess) {
 	glEnable(GL_POLYGON_OFFSET_FILL);
@@ -378,7 +367,6 @@ void DisplaySkeleton::RenderGroundPlane(double groundPlaneSize, double groundPla
 	}
 }
 
-//NEEDS UPDATING
 void DisplaySkeleton::cameraView(void) {
 	glTranslated(camera.tx, camera.ty, camera.tz);
 	glTranslated(camera.atx, camera.aty, camera.atz);
@@ -392,13 +380,11 @@ void DisplaySkeleton::cameraView(void) {
 }
 
 /*
-#
-* this function is called by Player_Gl_Window::draw(). The display is double buffered,
-* and FLTK swaps buffers when the function returns. The GL context associated with this
-* instance of Player_GL_Window is set to the current context by FLTK when it calls draw().
+this function is called by Player_Gl_Window::draw(). The display is double buffered,
+and FLTK swaps buffers when the function returns. The GL context associated with this
+instance of Player_GL_Window is set to the current context by FLTK when it calls draw().
 */
-//NEEDS UPDATING
-void DisplaySkeleton::Redisplay() {
+void DisplaySkeleton::redisplay() {
 	//clear image buffer to black
 	glClearColor(1.0, 1.0, 1.0, 0);
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT); //clear image, zbuf
@@ -409,11 +395,11 @@ void DisplaySkeleton::Redisplay() {
 
 	glLineWidth(2.0);  //we'll draw background with thick lines
 
-	if (renderWorldAxes == ON) {
+	if (renderWorldAxesButton == ON) {
 		glDisable(GL_LIGHTING);
 		glDisable(GL_TEXTURE_2D);
 		glDisable(GL_FOG);
-		RenderWorldAxes();  // draw a triad in the origin of the world coordinate
+		renderWorldAxes();  // draw a triad in the origin of the world coordinate
 	}
 
 	if (groundPlane == ON) {
@@ -431,17 +417,17 @@ void DisplaySkeleton::Redisplay() {
 	}
 
 	//render the skeletons
-	if (displayer.GetNumSkeletons()) {
+	if (displayer.getNumSkeletons()) {
 		glEnable(GL_LIGHTING);
 		glDisable(GL_FOG);
-		displayer.Render(DisplaySkeleton::BONES_AND_LOCAL_FRAMES);
+		displayer.render(DisplaySkeleton::BONES_AND_LOCAL_FRAMES);
 	}
 
 	glPopMatrix(); //restore current transformation matrix
 }
 
 void renderWorldAxes_callback(Fl_Light_Button* obj, long val) {
-	renderWorldAxes = (SwitchStatus)worldAxes_button->value();
+	renderWorldAxesButton = (SwitchStatus)worldAxes_button->value();
 	glwindowMain->redraw();
 }
 
@@ -452,36 +438,33 @@ void resetScene_callback(Fl_Button* button, void*)
 	repeatButton = OFF;
 	lastSkeleton = -1;
 	lastMotion = -1;
-	displayer.Reset();
+	displayer.reset();
 	maxFrames = 0;
 	glwindowMain->redraw();
-	framesIncrementDoublePrecision = 1.0;
 	currentFrameIndex = 0;
-	currentFrameIndexDoublePrecision = 0.0;
 }
 
 void resetPostureAccordingFrameSlider(void) {
 	currentFrameIndex = (int)frame_slider->value() - 1;
-	currentFrameIndexDoublePrecision = currentFrameIndex;
 
 	//display
-	for (int skeletonIndex = 0; skeletonIndex < displayer.GetNumSkeletons(); skeletonIndex++)
+	for (int skeletonIndex = 0; skeletonIndex < displayer.getNumSkeletons(); skeletonIndex++)
 	{
 		int postureID;
-		if (currentFrameIndex >= displayer.GetSkeletonMotion(skeletonIndex)->getNumFrames())
-			postureID = displayer.GetSkeletonMotion(skeletonIndex)->getNumFrames() - 1;
+		if (currentFrameIndex >= displayer.getSkeletonMotion(skeletonIndex)->getNumFrames())
+			postureID = displayer.getSkeletonMotion(skeletonIndex)->getNumFrames() - 1;
 		else
 			postureID = currentFrameIndex;
 		// Set skeleton to the first posture
-		Posture* currentPosture = displayer.GetSkeletonMotion(skeletonIndex)->GetPosture(postureID);
-		displayer.GetSkeleton(skeletonIndex)->setPosture(*currentPosture);
+		Posture* currentPosture = displayer.getSkeletonMotion(skeletonIndex)->getPosture(postureID);
+		displayer.getSkeleton(skeletonIndex)->setPosture(*currentPosture);
 	}
 }
 
-void UpdateMaxFrameNumber(void) {
+void updateMaxFrameNumber(void) {
 	maxFrames = 0;
-	for (int skeletonIndex = 0; skeletonIndex < displayer.GetNumSkeletons(); skeletonIndex++) {
-		int currentFrames = displayer.GetSkeletonMotion(skeletonIndex)->getNumFrames();
+	for (int skeletonIndex = 0; skeletonIndex < displayer.getNumSkeletons(); skeletonIndex++) {
+		int currentFrames = displayer.getSkeletonMotion(skeletonIndex)->getNumFrames();
 		if (currentFrames > maxFrames)
 			maxFrames = currentFrames;
 	}
@@ -498,7 +481,7 @@ void load_callback(Fl_Button* button, void*) {
 				//set the rotations for all bones in their local coordinate system to 0
 				//set root position to (0, 0, 0)
 				pSkeleton->setBasePosture();
-				displayer.LoadSkeleton(pSkeleton);
+				displayer.loadSkeleton(pSkeleton);
 				glwindowMain->redraw();
 			}
 		}
@@ -514,10 +497,10 @@ void load_callback(Fl_Button* button, void*) {
 				strcpy_s(lastMotionFilename, filename);
 
 				//set sampled motiion for display
-				displayer.LoadMotion(pMotion);
+				displayer.loadMotion(pMotion);
 				if (lastSkeleton > lastMotion) lastMotion++;
 
-				UpdateMaxFrameNumber();
+				updateMaxFrameNumber();
 				resetPostureAccordingFrameSlider();
 				frame_slider->value(currentFrameIndex);
 				frame_slider->maximum((double)maxFrames);
@@ -531,17 +514,17 @@ void load_callback(Fl_Button* button, void*) {
 }
 
 void reload_callback(Fl_Button* button, void*) {
-	if (!displayer.GetNumSkeletons())
+	if (!displayer.getNumSkeletons())
 		return;
 
 	//read motion file and create a motion
 	pMotion = new Motion(lastMotionFilename, MOCAP_SCALE, pSkeleton);
 
 	//set sampled motion for display
-	displayer.LoadMotion(pMotion);
+	displayer.loadMotion(pMotion);
 
 	resetPostureAccordingFrameSlider();
-	UpdateMaxFrameNumber();
+	updateMaxFrameNumber();
 	frame_slider->maximum((double)maxFrames);
 	frame_slider->value(currentFrameIndex);
 	frame_slider->redraw();
@@ -556,9 +539,6 @@ void play_callback(Fl_Button* button, void*) {
 	if (button == pause_button) { minusOneButton = OFF; plusOneButton = OFF; rewindButton = OFF; playButton = OFF; repeatButton = OFF; }
 	if (button == repeat_button) { minusOneButton = OFF; plusOneButton = OFF; rewindButton = OFF; playButton = ON;  repeatButton = ON; }
 	if (button == rewind_button) { minusOneButton = OFF; plusOneButton = OFF; rewindButton = ON;  playButton = OFF; repeatButton = OFF; }
-
-	if ((previousPlayButtonStatus == OFF) && (playButton == ON))
-		framesIncrementDoublePrecision = 1.0;  // Just start playing the animation, no time has been measured
 }
 
 /*
@@ -566,103 +546,82 @@ Set all skeletons to a specified frame (frameIndex)
 If frameIndex is larger than the number of frames of the motion,
 set the skeleton to the last frame of the motion
 */
-
-void DisplaySkeleton::SetSkeletonsToSpecifiedFrame(int frameIndex) {
+void DisplaySkeleton::setSkeletonsToSpecifiedFrame(int frameIndex) {
 	if (frameIndex < 0)
 	{
-		printf("Error in SetSkeletonsToSpecifiedFrame: frameIndex %d is illegal.\n", frameIndex);
+		printf("Error in setSkeletonsToSpecifiedFrame: frameIndex %d is illegal.\n", frameIndex);
 		exit(0);
 	}
-	for (int skeletonIndex = 0; skeletonIndex < displayer.GetNumSkeletons(); skeletonIndex++)
-		if (displayer.GetSkeletonMotion(skeletonIndex) != NULL)
+	for (int skeletonIndex = 0; skeletonIndex < displayer.getNumSkeletons(); skeletonIndex++)
+		if (displayer.getSkeletonMotion(skeletonIndex) != NULL)
 		{
 			int postureID;
-			if (frameIndex >= displayer.GetSkeletonMotion(skeletonIndex)->getNumFrames())
-				postureID = displayer.GetSkeletonMotion(skeletonIndex)->getNumFrames() - 1;
+			if (frameIndex >= displayer.getSkeletonMotion(skeletonIndex)->getNumFrames())
+				postureID = displayer.getSkeletonMotion(skeletonIndex)->getNumFrames() - 1;
 			else
 				postureID = frameIndex;
-			displayer.GetSkeleton(skeletonIndex)->setPosture(*(displayer.GetSkeletonMotion(skeletonIndex)->GetPosture(postureID)));
+			displayer.getSkeleton(skeletonIndex)->setPosture(*(displayer.getSkeletonMotion(skeletonIndex)->getPosture(postureID)));
 		}
 }
 
-//I have completely skipped the screenshot function, 
-
-//need to define a new one for distance
 void idle(void*) {
 	if (rewindButton == ON) {
 		currentFrameIndex = 0;
-		currentFrameIndexDoublePrecision = 0.0;
-		for (int i = 0; i < displayer.GetNumSkeletons(); i++)
-		{
-			if (displayer.GetSkeletonMotion(i) != NULL)
-			{
-				Posture* initSkeleton = displayer.GetSkeletonMotion(i)->GetPosture(0);
-				displayer.GetSkeleton(i)->setPosture(*initSkeleton);
+		for (int i = 0; i < displayer.getNumSkeletons(); i++) {
+			if (displayer.getSkeletonMotion(i) != NULL) {
+				Posture* initSkeleton = displayer.getSkeletonMotion(i)->getPosture(0);
+				displayer.getSkeleton(i)->setPosture(*initSkeleton);
 			}
 		}
 		rewindButton = OFF;
 	}
 
 	if (playButton == ON) {
-		if (displayer.GetNumSkeletons() != 0)
-		{
+		if (displayer.getNumSkeletons() != 0) {
 			currentFrameIndex++;
 			if (currentFrameIndex >= maxFrames) {
 				currentFrameIndex = maxFrames - 1;
-				currentFrameIndexDoublePrecision = currentFrameIndex;
-				playButton = OFF;  // important, especially in "recording" mode
+				playButton = OFF;
 			}
 			frame_slider->value((double)currentFrameIndex + 1);
-
-			displayer.SetSkeletonsToSpecifiedFrame(currentFrameIndex);
+			displayer.setSkeletonsToSpecifiedFrame(currentFrameIndex);
 		}
-	}  // if(playButton == ON)
+	} 
 
 	if (minusOneButton == ON)
-		if (displayer.GetNumSkeletons() != 0)
-		{
+		if (displayer.getNumSkeletons() != 0) {
 			currentFrameIndex--;
-			if (currentFrameIndex < 0)
-				currentFrameIndex = 0;
+			if (currentFrameIndex < 0) { currentFrameIndex = 0; }
 			frame_slider->value((double)currentFrameIndex + 1);
-
-			displayer.SetSkeletonsToSpecifiedFrame(currentFrameIndex);
+			displayer.setSkeletonsToSpecifiedFrame(currentFrameIndex);
 			minusOneButton = OFF;
 		}
 
-	if (plusOneButton == ON)
-	{
-		if (displayer.GetNumSkeletons() != 0)
-		{
+	if (plusOneButton == ON) {
+		if (displayer.getNumSkeletons() != 0) {
 			currentFrameIndex++;
-			if (currentFrameIndex >= maxFrames)
-				currentFrameIndex = maxFrames - 1;
+			if (currentFrameIndex >= maxFrames) { currentFrameIndex = maxFrames - 1; }
 			frame_slider->value((double)currentFrameIndex + 1);
-
-			displayer.SetSkeletonsToSpecifiedFrame(currentFrameIndex);
+			displayer.setSkeletonsToSpecifiedFrame(currentFrameIndex);
 			plusOneButton = OFF;
 		}
 	}
 
 	frame_slider->value((double)(currentFrameIndex + 1));
-
-	previousPlayButtonStatus = playButton; // Super important updating
-
+	previousPlayButtonStatus = playButton;
 	glwindowMain->redraw();
 }
 
 void fslider_callback(Fl_Value_Slider* slider, long val) {
 	currentFrameIndex = (int)frame_slider->value() - 1;
-	currentFrameIndexDoublePrecision = currentFrameIndex;
 	rewindButton = OFF;
 	playButton = OFF;
 	repeatButton = OFF;
-	displayer.SetSkeletonsToSpecifiedFrame(currentFrameIndex);
+	displayer.setSkeletonsToSpecifiedFrame(currentFrameIndex);
 	Fl::flush();
 }
 
-//NEEDS UPDATING
-void DisplaySkeleton::GraphicsInit(DisplaySkeleton* displayer) {
+void DisplaySkeleton::graphicsInit(DisplaySkeleton* displayer) {
 	int red_bits, green_bits, blue_bits;
 	struct { GLint x, y, width, height; } viewport;
 	glEnable(GL_DEPTH_TEST);	/* turn on z-buffer */
@@ -734,7 +693,7 @@ void DisplaySkeleton::GraphicsInit(DisplaySkeleton* displayer) {
 	double groundPlaneShininess = 120.0;
 	displayListGround = glGenLists(1);
 	glNewList(displayListGround, GL_COMPILE);
-	displayer->RenderGroundPlane(groundPlaneSize, groundPlaneHeight, groundPlaneR, groundPlaneG, groundPlaneB, groundPlaneAmbient, groundPlaneDiffuse, groundPlaneSpecular, groundPlaneShininess);
+	displayer->renderGroundPlane(groundPlaneSize, groundPlaneHeight, groundPlaneR, groundPlaneG, groundPlaneB, groundPlaneAmbient, groundPlaneDiffuse, groundPlaneSpecular, groundPlaneShininess);
 	glEndList();
 }
 
@@ -742,7 +701,6 @@ void DisplaySkeleton::GraphicsInit(DisplaySkeleton* displayer) {
 define the methods for glwindow and handle mouse events
 don't make any openGL calls here as the context is not set
 */
-//NEEDS UPDATING
 int Player_Gl_Window::handle(int event) {
 	int handled = 1;
 	static int prev_x, prev_y;
@@ -766,14 +724,11 @@ int Player_Gl_Window::handle(int event) {
 		delta_y = mouse.y - prev_y;
 
 		if (mouse.button == 3) {
-			if (abs(delta_x) > abs(delta_y))
-				camera.az += (GLdouble)(delta_x);
-			else
-				camera.el -= (GLdouble)(delta_y);
+			if (abs(delta_x) > abs(delta_y)) { camera.az += (GLdouble)(delta_x); }
+			else { camera.el -= (GLdouble)(delta_y); }
 		}
 		else if (mouse.button == 2) {
-			if (abs(delta_y) > abs(delta_x))
-				glScalef(float(1 + delta_y / 100.0), float(1 + delta_y / 100.0), float(1 + delta_y / 100.0));
+			if (abs(delta_y) > abs(delta_x)) {glScalef(float(1 + delta_y / 100.0), float(1 + delta_y / 100.0), float(1 + delta_y / 100.0)); }
 		}
 		else {
 			if (mouse.button == 1) {
@@ -804,26 +759,27 @@ int Player_Gl_Window::handle(int event) {
 	prev_y = mouse.y;
 	glwindowMain->redraw();
 
-	return (handled);  // Returning one acknowledges that we handled this event
+	return handled;  // returning one acknowledges that we handled this event
 }
 
 void Player_Gl_Window::draw() {
 	draw(&displayer);
+	//allows calling of the function from other files
 }
 
 //Pre-written draw function, edited for the displayer
 void Player_Gl_Window::draw(DisplaySkeleton* displayer) {
 	// Upon setup of the window (or when Fl_Gl_Window->invalidate is called), 
 	// the set of functions inside the if block are executed.
-	if (!valid()) {
-		displayer->GraphicsInit(displayer);
-	}
+	if (!valid()) { displayer->graphicsInit(displayer); }
 
 	// Redisplay the screen then put the proper buffer on the screen.
-	displayer->Redisplay();
+	displayer->redisplay();
 }
 
 int main() {
+
+	//experimenting code, allows for several files to be used to create movement from frames
 	char motions[][100] = { "movements\\walk.asf", 
 		"movements\\walkMartial.amc",  "movements\\newWalkMartial.amc", "movements\\newAllWalk.amc"};
 	char* skeletonPtr = motions[0];
@@ -831,11 +787,10 @@ int main() {
 	char* newMotionPtr1 = motions[2];
 	char* newMotionPtr2 = motions[3];
 	int done = distance(skeletonPtr, motionPtr, newMotionPtr1, 100, 10, 1);
-	//int done2 = distance(skeletonPtr, motionPtr, newMotionPtr2);
 
 	//initialise form, sliders and buttons
 	form = make_window();
-	worldAxes_button->value(renderWorldAxes);
+	worldAxes_button->value(renderWorldAxesButton);
 	frame_slider->value(1);
 
 	//show form, and do initial draw of model

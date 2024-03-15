@@ -6,58 +6,48 @@
 #include "skeleton.h"
 #include "motion.h"
 
-class DisplaySkeleton 
-{
-
+class DisplaySkeleton  {
   //member functions
 public: 
-  enum RenderMode
-  {
-    BONES_ONLY, BONES_AND_LOCAL_FRAMES
-  };
-  enum JointColor
-  {
-    GREEN, RED, BLUE, NUMBER_JOINT_COLOURS
-  };
+  enum RenderMode { BONES_ONLY, BONES_AND_LOCAL_FRAMES };
+  enum JointColor { GREEN, RED, BLUE, NUMBER_JOINT_COLOURS };
 
   DisplaySkeleton();
   ~DisplaySkeleton();
 
   //set skeleton for display
-  void LoadSkeleton(Skeleton * pSkeleton);
+  void loadSkeleton(Skeleton * pSkeleton);
   //set motion for display
-  void LoadMotion(Motion * pMotion);
+  void loadMotion(Motion * pMotion);
 
   //display the scene (skeleton, ground plane ....)
-  void Render(RenderMode renderMode);
+  void render(RenderMode renderMode);
 
-  void SetDisplayedSpotJoint(int jointID) {m_SpotJoint = jointID;}
-  int GetDisplayedSpotJoint(void) {return m_SpotJoint;}
-  int GetNumSkeletons(void) {return numSkeletons;}
-  Skeleton * GetSkeleton(int skeletonIndex);
-  Motion * GetSkeletonMotion(int skeletonIndex);
-  void RenderWorldAxes();
-  void Redisplay();
-  void RenderGroundPlane(double groundPlaneSize, double groundPlaneHeight, double rPlane,
+  void setDisplayedSpotJoint(int jointID) {m_SpotJoint = jointID;}
+  int getDisplayedSpotJoint(void) {return m_SpotJoint;}
+  int getNumSkeletons(void) {return numSkeletons;}
+  Skeleton * getSkeleton(int skeletonIndex);
+  Motion * getSkeletonMotion(int skeletonIndex);
+  void renderWorldAxes();
+  void redisplay();
+  void renderGroundPlane(double groundPlaneSize, double groundPlaneHeight, double rPlane,
 	  double gPlane, double bPlane, double ambientFskeleton, double diffuseFskeleton,
 	  double specularFskeleton, double shininess);
-  void SetSkeletonsToSpecifiedFrame(int frameIndex);
-  void GraphicsInit(DisplaySkeleton* displayer);
+  void setSkeletonsToSpecifiedFrame(int frameIndex);
+  void graphicsInit(DisplaySkeleton* displayer);
   void cameraView(void);
 
-  void Reset(void);
+  void reset(void);
   
 protected:
-   typedef unsigned int GLuint;
-
   RenderMode renderMode;
   // Draw a particular bone
-  void DrawBone(Bone *ptr, int skelNum);
+  void drawBone(Bone *ptr, int skelNum);
   // Draw the skeleton hierarchy
-  void Traverse(Bone *ptr, int skelNum);
+  void traverse(Bone *ptr, int skelNum);
   // Model matrix for the shadow
-  void DrawSpotJointAxis(void);
-  void SetDisplayList(int skeletonID, Bone *bone, GLuint *pBoneList);
+  void drawSpotJointAxis(void);
+  void setDisplayList(int skeletonID, Bone *bone, GLuint *pBoneList);
 
   int m_SpotJoint;		//joint whose local coordinate framework is drawn
   int numSkeletons;

@@ -23,8 +23,8 @@ public:
 	void SetBoneRotation(int frameIndex, int boneIndex, vector vRot);
 
 	int getNumFrames() { return m_NumFrames; }
-	Posture* GetPosture(int frameIndex);
-	Skeleton* GetSkeleton() { return pSkeleton; }
+	Posture* getPosture(int frameIndex);
+	Skeleton* getSkeleton() { return pSkeleton; }
 
 protected:
 	int m_NumFrames;

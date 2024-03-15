@@ -61,9 +61,9 @@ vector Motion::GetRootPos(Posture InPosture){
 	return InPosture.root_pos;
 }
 
-Posture* Motion::GetPosture(int frameIndex) {
+Posture* Motion::getPosture(int frameIndex) {
 	if (frameIndex < 0 || frameIndex >= m_NumFrames) {
-		printf("Error in Motion::GetPosture: frame index %d is illegal.\n", frameIndex);
+		printf("Error in Motion::getPosture: frame index %d is illegal.\n", frameIndex);
 		printf("m_NumFrames = %d\n", m_NumFrames);
 		exit(0);
 	}
@@ -91,7 +91,7 @@ int Motion::readAMCfile(char* name, double scale) {
 	
 	//compute number of frames, ignoring the header
 	//there are NUM_BONES_IN_ASF_FILE -2 moving bones and 2 dummy (lhipjoiny and rhipjoint)
-	int numbones = pSkeleton->numBonesInSkel(bone[0]);
+	int numBones = pSkeleton->numBonesInSkel(bone[0]);
 	int movbones = pSkeleton->movBonesInSkel(bone[0]);
 	n = (n - 3) / (movbones + 1);
 	m_NumFrames = n;
@@ -120,7 +120,7 @@ int Motion::readAMCfile(char* name, double scale) {
 
 			//find the bone index corresponding to the bone name
 			int bone_idx;
-			for (bone_idx = 0; bone_idx < numbones; bone_idx++)
+			for (bone_idx = 0; bone_idx < numBones; bone_idx++)
 				if (strcmp(str, pSkeleton->idx2name(bone_idx)) == 0)
 					break;
 
@@ -180,7 +180,7 @@ int Motion::writeAMCfile(char* filename, double scale, int forceAllJointsBe3DOF)
 	if (forceAllJointsBe3DOF) os << ":FORCE-ALL-JOINTS-BE-3DOF" << std::endl;
 	os << ":DEGREES" << std::endl;
 
-	int numbones = pSkeleton->numBonesInSkel(bone[0]);
+	int numBones = pSkeleton->numBonesInSkel(bone[0]);
 
 	int root = Skeleton::getRootIndex();
 	for (int f = 0; f < m_NumFrames; f++) {
@@ -193,7 +193,7 @@ int Motion::writeAMCfile(char* filename, double scale, int forceAllJointsBe3DOF)
 			<< m_pPostures[f].bone_rotation[root].p[1] << " "
 			<< m_pPostures[f].bone_rotation[root].p[2];
 
-		for (int j = 2; j < numbones; j++) {
+		for (int j = 2; j < numBones; j++) {
 			//output bone name
 			if (bone[j].dof != 0) {
 				os << std::endl << pSkeleton->idx2name(j);

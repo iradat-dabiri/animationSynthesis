@@ -307,8 +307,8 @@ void Skeleton::ComputeRotationToParentCoordSystem(Bone *bone){
     matrix_transpose(tmp2, bone[root].rot_parent_current);
 
     //Compute rot_parent_current for all other bones
-    int numbones = numBonesInSkel(bone[0]);
-    for (i = 0; i < numbones; i++) {
+    int numBones = numBonesInSkel(bone[0]);
+    for (i = 0; i < numBones; i++) {
         if (bone[i].child != NULL) {
             compute_rotation_parent_child(&bone[i], bone[i].child);
 
@@ -428,8 +428,8 @@ void Skeleton::set_bone_shape(Bone *bone){
     bone[root].aspy = 1;
     printf("READ %d\n", numBonesInSkel(bone[0]));
     printf("MOV %d\n", movBonesInSkel(bone[0]));
-    int numbones = numBonesInSkel(bone[0]);
-    for (int j = 1; j < numbones; j++)
+    int numBones = numBonesInSkel(bone[0]);
+    for (int j = 1; j < numBones; j++)
     {
         bone[j].aspx = 0.25;
         bone[j].aspy = 0.25;
