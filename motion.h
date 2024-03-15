@@ -15,12 +15,12 @@ public:
 
 	int writeAMCfile(char* filename, double scale, int forceAllJointsBe3DOF = 0);
 
-	void SetPosturesToDefault();
-	void SetPosture(int frameIndex, Posture InPosture);
+	void setPosturesToDefault();
+	void setPosture(int frameIndex, Posture InPosture);
 
-	void SetRootPos(int frameIndex, vector vPos);
-	vector GetRootPos(Posture InPosture);
-	void SetBoneRotation(int frameIndex, int boneIndex, vector vRot);
+	void setRootPos(int frameIndex, vector vPos);
+	vector getRootPos(Posture InPosture);
+	void setBoneRotation(int frameIndex, int boneIndex, vector vRot);
 
 	int getNumFrames() { return m_NumFrames; }
 	Posture* getPosture(int frameIndex);

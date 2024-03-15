@@ -41,9 +41,9 @@ public:
 
 	double length() const;
 
-	void set_x(double x) { p[0] = x; };
-	void set_y(double y) { p[1] = y; };
-	void set_z(double z) { p[2] = z; };
+	void setX(double x) { p[0] = x; };
+	void setY(double y) { p[1] = y; };
+	void setZ(double z) { p[2] = z; };
 
 	//data members
 	double p[3]; 

@@ -3,17 +3,15 @@
 #include "transform.h"
 #include "types.h"
 
-void matrix_transpose(double a[4][4], double b[4][4]) {
+void matrixTranspose(double a[4][4], double b[4][4]) {
 	int i, j;
-
 	for (i = 0; i < 4; i++)
 		for (j = 0; j < 4; j++)
 			b[i][j] = a[j][i];
 }
 
-void matrix_print(char* str, double a[4][4]) {
+void matrixPrint(char* str, double a[4][4]) {
 	int i;
-
 	printf("matrix %s:\n", str);
 	for (i = 0; i < 4; i++)
 		printf(" %8.3f %8.3f %8.3f %8.3f\n",
@@ -21,13 +19,13 @@ void matrix_print(char* str, double a[4][4]) {
 }
 
 // transform point (x, y, z) by matrix m with last row 0 0 0 1
-void matrix_transform_affine(double m[4][4], double x, double y, double z, double pt[3]) {
+void g(double m[4][4], double x, double y, double z, double pt[3]) {
 	pt[0] = m[0][0] * x + m[0][1] * y + m[0][2] * z + m[0][3];
 	pt[1] = m[1][0] * x + m[1][1] * y + m[1][2] * z + m[1][3];
 	pt[2] = m[2][0] * x + m[2][1] * y + m[2][2] * z + m[2][3];
 }
 
-void matrix_mult(double a[][4], double b[][4], double c[][4]) {
+void matrixMult(double a[][4], double b[][4], double c[][4]) {
 	int i, j, k;
 	for (i = 0; i < 4; i++)
 		for (j = 0; j < 4; j++) {
@@ -37,17 +35,17 @@ void matrix_mult(double a[][4], double b[][4], double c[][4]) {
 		}
 }
 
-void v3_cross(double a[3], double b[3], double c[3]) {
+void v3Cross(double a[3], double b[3], double c[3]) {
 	c[0] = a[1] * b[2] - a[2] * b[1];
 	c[1] = a[2] * b[0] - a[0] * b[2];
 	c[2] = a[0] * b[1] - a[1] * b[0];
 }
 
-double v3_dot(double a[3], double b[3]) {
+double v3Dot(double a[3], double b[3]) {
 	return(a[0] * b[0] + a[1] * b[1] + a[2] * b[2]);
 }
 
-double v3_magnitude(double a[3]) {
+double v3Magnitude(double a[3]) {
 	return(sqrt(a[0] * a[0] + a[1] * a[1] + a[2] * a[2]));
 }
 
@@ -58,9 +56,9 @@ void rotationXYZ(double* v, double a, double b, double c) {
 	rotationY(Ry, b);
 	rotationX(Rx, a);
 
-	matrix_transform_affine(Rz, v[0], v[1], v[2], v);
-	matrix_transform_affine(Ry, v[0], v[1], v[2], v);
-	matrix_transform_affine(Rx, v[0], v[1], v[2], v);
+	matrixTransformAffine(Rz, v[0], v[1], v[2], v);
+	matrixTransformAffine(Ry, v[0], v[1], v[2], v);
+	matrixTransformAffine(Rx, v[0], v[1], v[2], v);
 }
 
 void rotationX(double r[][4], double a) {
@@ -87,9 +85,9 @@ void rotationZ(double r[][4], double c) {
 	r[3][0] = 0;      r[3][1] = 0;       r[3][2] = 0; r[3][3] = 1;
 }
 
-double get_angle(double* v1, double* v2, double* axis) {
-	double dot_prod = v3_dot(v1, v2);
-	double r_axis_len = v3_magnitude(axis);
+double getAngle(double* v1, double* v2, double* axis) {
+	double dot_prod = v3Dot(v1, v2);
+	double r_axis_len = v3Magnitude(axis);
 
 	return atan2(r_axis_len, dot_prod);
 }

@@ -24,7 +24,7 @@ struct Bone {
 	int doftl;
 	
 	char name[256];
-	double rot_parent_current[4][4];
+	double rotParentCurrent[4][4];
 
 	double rx, ry, rz;
 	double tx, ty, tz;
@@ -49,15 +49,15 @@ public:
 
 	int name2idx(char*);
 	char* idx2name(int);
-	void GetRootPosGlobal(double rootPosGlobal[3]);
-	void GetTranslation(double translation[3]);
-	void GetRotationAngle(double rotationAngle[3]);
-	void SetTranslationX(double tx_) { tx = tx_; }
-	void SetTranslationY(double ty_) { ty = ty_; }
-	void SetTranslationZ(double tz_) { tz = tz_; }
-	void SetRotationAngleX(double rx_) { rx = rx_; }
-	void SetRotationAngleY(double ry_) { ry = ry_; }
-	void SetRotationAngleZ(double rz_) { rz = rz_; }
+	void getRootPosGlobal(double rootPosGlobal[3]);
+	void getTranslation(double translation[3]);
+	void getRotationAngle(double rotationAngle[3]);
+	void setTranslationX(double tx_) { tx = tx_; }
+	void setTranslationY(double ty_) { ty = ty_; }
+	void setTranslationZ(double tz_) { tz = tz_; }
+	void setRotationAngleX(double rx_) { rx = rx_; }
+	void setRotationAngleY(double ry_) { ry = ry_; }
+	void setRotationAngleZ(double rz_) { rz = rz_; }
 
 	int numBonesInSkel(Bone bone);
 	int movBonesInSkel(Bone bone);
@@ -69,11 +69,11 @@ protected:
 
 	int setChildrenAndSibling(int parent, Bone* pChild);
 
-	void RotateBoneDirToLocalCoordSystem();
+	void rotateBoneDirToLocalCoordSystem();
 
-	void set_bone_shape(Bone* bone);
-	void compute_rotation_parent_child(Bone* parent, Bone* child);
-	void ComputeRotationToParentCoordSystem(Bone* bone);
+	void setBoneShape(Bone* bone);
+	void computeRotationParentChild(Bone* parent, Bone* child);
+	void computeRotationToParentCoordSystem(Bone* bone);
 
 	double m_RootPos[3];
 	double tx, ty, tz;

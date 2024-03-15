@@ -83,11 +83,11 @@ std::vector<std::vector<double>> compare(int frames, std::vector<std::vector<dou
     std::ofstream outputFile("array.txt");
     for(int i = 0; i < frames; i++){
         Posture* currentPosture = aMotion->getPosture(i);
-        vector rootPos = aMotion->GetRootPos(*currentPosture);
+        vector rootPos = aMotion->getRootPos(*currentPosture);
         if (all) { aSkeleton->setPosture(*currentPosture); }
         for(int j = 0; j < frames; j++){
             Posture* tempPosture = aMotion->getPosture(j);
-            vector tempPos = aMotion->GetRootPos(*tempPosture);
+            vector tempPos = aMotion->getRootPos(*tempPosture);
             arr[i][j] = findDistanceRoots(rootPos, tempPos);
             if (all){
                 for(int x = 0; x < 31; x++){
@@ -168,7 +168,7 @@ int distance(char *asf_filename, char *amc_filename, char *new_amc_filename, int
     
     madeMotion = new Motion(length, aSkeleton);
     for(int i = 0; i < length; i++){
-        madeMotion->SetPosture(i, *(aMotion->getPosture(motionIndexes[i][0])));
+        madeMotion->setPosture(i, *(aMotion->getPosture(motionIndexes[i][0])));
     }
     madeMotion->writeAMCfile(new_amc_filename, MOCAP_SCALE);
 

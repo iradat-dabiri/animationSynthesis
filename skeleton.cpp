@@ -28,13 +28,12 @@ int Skeleton::numBonesInSkel(Bone bone){
 
 void Skeleton::removeChar(char* str){
     //this is for the file to get rid of uneccesary final characters
-    //maybe just implement in the readASF file function instead of a whole function
     if (str[strlen(str) - 1] == '\r')
         str[strlen(str) - 1] = 0;
 }
 
 int Skeleton::movBonesInSkel(Bone bone){
-    //this is very similar to numBonesInSkel, just working with the dof
+    //this is very similar to numBonesInSkel, just working with the dof finding the bones that actually move
     Bone* tmp = bone.sibling;
     int numBones = 0;
 
@@ -63,14 +62,12 @@ int Skeleton::name2idx(char *name){
 }
 
 char * Skeleton::idx2name(int idx){
-    //not sure what this does, find it in the main file for its use
-    //it probably converts backwards
+    //converts backwards
     int i = 0;
     while (m_pBoneList[i].idx != idx && i++ < NUM_BONES_IN_ASF_FILE);
     return m_pBoneList[i].name;
 }
 
-//main function come back to it
 int Skeleton::readASFfile(char* asf_filename, double scale) {
     //check file exists and open it
     std::ifstream is(asf_filename, std::ios::in);
@@ -265,7 +262,7 @@ Bone * Skeleton::getRoot(){
 
 //The following 3 functions compute relative orientation and 
 //translation between parent and child bones (in the local coordinate of the parent body)
-void Skeleton::compute_rotation_parent_child(Bone *parent, Bone *child){
+void Skeleton::computeRotationParentChild(Bone *parent, Bone *child){
     //rotation from this bone local coordinate system to the coordinate system of its parent
     double Rx[4][4], Ry[4][4], Rz[4][4], tmp[4][4], tmp1[4][4], tmp2[4][4];
 
@@ -273,27 +270,27 @@ void Skeleton::compute_rotation_parent_child(Bone *parent, Bone *child){
         rotationZ(Rz, -parent->axis_z);
         rotationY(Ry, -parent->axis_y);
         rotationX(Rx, -parent->axis_x);
-        matrix_mult(Rx, Ry, tmp);
-        matrix_mult(tmp, Rz, tmp1);
+        matrixMult(Rx, Ry, tmp);
+        matrixMult(tmp, Rz, tmp1);
 
         rotationZ(Rz, child->axis_z);
         rotationY(Ry, child->axis_y);
         rotationX(Rx, child->axis_x);
-        matrix_mult(Rz, Ry, tmp);
-        matrix_mult(tmp, Rx, tmp2);
+        matrixMult(Rz, Ry, tmp);
+        matrixMult(tmp, Rx, tmp2);
 
-        matrix_mult(tmp1, tmp2, tmp);
-        matrix_transpose(tmp, child->rot_parent_current);
+        matrixMult(tmp1, tmp2, tmp);
+        matrixTranspose(tmp, child->rotParentCurrent);
     }
 }
 
-void Skeleton::ComputeRotationToParentCoordSystem(Bone *bone){
+void Skeleton::computeRotationToParentCoordSystem(Bone *bone){
     //loop through all bones to calculate local coordinate's direction vector and relative orientation
     //check that this and the above are used at separate times (see if you can combine)
     int i;
     double Rx[4][4], Ry[4][4], Rz[4][4], tmp[4][4], tmp2[4][4];
 
-    //Compute rot_parent_current for the root 
+    //Compute rotParentCurrent for the root 
 
     //Compute tmp2, a matrix containing root 
     //joint local coordinate system orientation
@@ -301,29 +298,29 @@ void Skeleton::ComputeRotationToParentCoordSystem(Bone *bone){
     rotationZ(Rz, bone[root].axis_z);
     rotationY(Ry, bone[root].axis_y);
     rotationX(Rx, bone[root].axis_x);
-    matrix_mult(Rz, Ry, tmp);
-    matrix_mult(tmp, Rx, tmp2);
-    //set bone[root].rot_parent_current to transpose of tmp2
-    matrix_transpose(tmp2, bone[root].rot_parent_current);
+    matrixMult(Rz, Ry, tmp);
+    matrixMult(tmp, Rx, tmp2);
+    //set bone[root].rotParentCurrent to transpose of tmp2
+    matrixTranspose(tmp2, bone[root].rotParentCurrent);
 
-    //Compute rot_parent_current for all other bones
+    //Compute rotParentCurrent for all other bones
     int numBones = numBonesInSkel(bone[0]);
     for (i = 0; i < numBones; i++) {
         if (bone[i].child != NULL) {
-            compute_rotation_parent_child(&bone[i], bone[i].child);
+            computeRotationParentChild(&bone[i], bone[i].child);
 
             // compute parent child siblings...
             Bone* tmp = NULL;
             if (bone[i].child != NULL) tmp = (bone[i].child)->sibling;
             while (tmp != NULL) {
-                compute_rotation_parent_child(&bone[i], tmp);
+                computeRotationParentChild(&bone[i], tmp);
                 tmp = tmp->sibling;
             }
         }
     }
 }
 
-void Skeleton::RotateBoneDirToLocalCoordSystem(){
+void Skeleton::rotateBoneDirToLocalCoordSystem(){
     //transforms the direction vector to local coordinate
     int i;
 
@@ -420,7 +417,7 @@ void Skeleton::setPosture(Posture posture){
     }
 }
 
-void Skeleton::set_bone_shape(Bone *bone){
+void Skeleton::setBoneShape(Bone *bone){
     //setting the aspect ratio of each bone
     //see what is looks like when you change this?
     int root = Skeleton::getRootIndex();
@@ -472,33 +469,33 @@ Skeleton::Skeleton(char *asf_filename, double scale){
 
     //transform the direction vector for each bone from the world coordinate system 
     //to it's local coordinate system
-    RotateBoneDirToLocalCoordSystem();
+    rotateBoneDirToLocalCoordSystem();
 
     //Calculate rotation from each bone local coordinate system to the coordinate system of its parent
-    //store it in rot_parent_current variable for each bone
-    ComputeRotationToParentCoordSystem(m_pRootBone);
+    //store it in rotParentCurrent variable for each bone
+    computeRotationToParentCoordSystem(m_pRootBone);
 
     //Set the aspect ratio of each bone 
-    set_bone_shape(m_pRootBone);
+    setBoneShape(m_pRootBone);
 }
 
 Skeleton::~Skeleton(){}
 
-void Skeleton::GetRootPosGlobal(double rootPosGlobal[3]){
+void Skeleton::getRootPosGlobal(double rootPosGlobal[3]){
     //simple getter
     rootPosGlobal[0] = m_RootPos[0];
     rootPosGlobal[1] = m_RootPos[1];
     rootPosGlobal[2] = m_RootPos[2];
 }
 
-void Skeleton::GetTranslation(double translation[3]){
+void Skeleton::getTranslation(double translation[3]){
     //simple getter
     translation[0] = tx;
     translation[1] = ty;
     translation[2] = tz;
 }
 
-void Skeleton::GetRotationAngle(double rotationAngle[3]){
+void Skeleton::getRotationAngle(double rotationAngle[3]){
     //simple getter
     rotationAngle[0] = rx;
     rotationAngle[1] = ry;

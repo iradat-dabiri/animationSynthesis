@@ -161,18 +161,18 @@ void DisplaySkeleton::setDisplayList(int skeletonID, Bone* bone, GLuint *pBoneLi
 that stores the transformation matrix of the bone in world coordinates
 We draw the k+1th bone using its local information and M_k
 In the k+1th bone, we compute:
-rot_parent_current - rotation matrix that takes is from the K+1 to kth local coordinate system
+rotParentCurrent - rotation matrix that takes is from the K+1 to kth local coordinate system
 R_k+1 - rotation matrix fro the k+1th bone using angles from AMC file
 T_k+1 - translation matrix for the k+1th node
 
-Update relation is given by: M_k+1 = M_k * rot_parent_current * R_k+1 * T_k+1
+Update relation is given by: M_k+1 = M_k * rotParentCurrent * R_k+1 * T_k+1
 */
 void DisplaySkeleton::drawBone(Bone* pBone, int skelNum) {
     static double z_dir[3] = { 0.0, 0.0, 1.0 };
     double r_axis[3], theta;
 
     //rotate from local coorindates system of this bone to its parent
-    glMultMatrixd((double*)&pBone->rot_parent_current);
+    glMultMatrixd((double*)&pBone->rotParentCurrent);
     
     //draw the local coordinate system for the selected bone
     if ((renderMode == BONES_AND_LOCAL_FRAMES) && (pBone->idx == m_SpotJoint)) {
@@ -211,8 +211,8 @@ void DisplaySkeleton::drawBone(Bone* pBone, int skelNum) {
     //compute the angle between the cannonical pose and the correct orientation 
     //(speciified in pBone->dir) using cross product
     //using the formula: r_axis = z_dir * pBone->dir
-    v3_cross(z_dir, pBone->dir, r_axis);
-    theta = get_angle(z_dir, pBone->dir, r_axis);
+    v3Cross(z_dir, pBone->dir, r_axis);
+    theta = getAngle(z_dir, pBone->dir, r_axis);
     glRotatef(float(theta * 180. / M_PI), float(r_axis[0]), float(r_axis[1]), float(r_axis[2]));
     glCallList(m_BoneList[skelNum] + pBone->idx);
 
@@ -248,9 +248,9 @@ void DisplaySkeleton::render(RenderMode renderMode_) {
     for (int i = 0; i < numSkeletons; i++) {
         glPushMatrix();
         double translation[3];
-        m_pSkeleton[i]->GetTranslation(translation);
+        m_pSkeleton[i]->getTranslation(translation);
         double rotationAngle[3];
-        m_pSkeleton[i]->GetRotationAngle(rotationAngle);
+        m_pSkeleton[i]->getRotationAngle(rotationAngle);
 
         glTranslatef(float(MOCAP_SCALE * translation[0]), float(MOCAP_SCALE * translation[1]), float(MOCAP_SCALE * translation[2]));
         glRotatef(float(rotationAngle[0]), 1.0f, 0.0f, 0.0f);

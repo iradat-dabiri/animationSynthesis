@@ -16,7 +16,7 @@ Motion::Motion(int numFrames_, Skeleton* pSkeleton_) {
 	m_pPostures = new Posture[m_NumFrames];
 
 	//Set all postures to default posture
-	SetPosturesToDefault();
+	setPosturesToDefault();
 }
 
 Motion::Motion(char* amc_filename, double scale, Skeleton* pSkeleton_) {
@@ -34,7 +34,7 @@ Motion::~Motion() {
 		delete[] m_pPostures;
 }
 
-void Motion::SetPosturesToDefault() {
+void Motion::setPosturesToDefault() {
 	for (int frame = 0; frame < m_NumFrames; frame++) {
 		//set root position to (0,0,0)
 		m_pPostures[frame].root_pos.setValue(0.0, 0.0, 0.0);
@@ -45,20 +45,20 @@ void Motion::SetPosturesToDefault() {
 }
 
 //set posture at a specified frame
-void Motion::SetPosture(int frameIndex, Posture InPosture) {
-	m_pPostures[frameIndex] = InPosture;
+void Motion::setPosture(int frameIndex, Posture inPosture) {
+	m_pPostures[frameIndex] = inPosture;
 }
 
-void Motion::SetBoneRotation(int frameIndex, int boneIndex, vector vRot) {
+void Motion::setBoneRotation(int frameIndex, int boneIndex, vector vRot) {
 	m_pPostures[frameIndex].bone_rotation[boneIndex] = vRot;
 }
 
-void Motion::SetRootPos(int frameIndex, vector vPos) {
+void Motion::setRootPos(int frameIndex, vector vPos) {
 	m_pPostures[frameIndex].root_pos = vPos;
 }
 
-vector Motion::GetRootPos(Posture InPosture){
-	return InPosture.root_pos;
+vector Motion::getRootPos(Posture inPosture){
+	return inPosture.root_pos;
 }
 
 Posture* Motion::getPosture(int frameIndex) {
@@ -97,7 +97,7 @@ int Motion::readAMCfile(char* name, double scale) {
 	m_NumFrames = n;
 	//allocate memory for state vector
 	m_pPostures = new Posture[m_NumFrames];
-	SetPosturesToDefault();
+	setPosturesToDefault();
 	file.open(name);
 	//process the header (add rotational DOFs if requested)
 	while (1) {
